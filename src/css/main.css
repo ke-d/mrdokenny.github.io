@@ -789,8 +789,8 @@ nav#menu #menu-nav li a:hover {
 
 #aboutKenny {
 	float: none;
-	width: 500px;
-	margin-left: 370px;
+	margin: 0 auto;
+
 }
 
 .image-wrap {

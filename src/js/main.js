@@ -77,9 +77,9 @@ BRUSHED.slider = function(){
 		thumb_links				:	0,			// Individual thumb links for each slide
 		thumbnail_navigation    :   0,			// Thumbnail navigation
 		slides 					:  	[			// Slideshow Images
-											{image : 'src/img/slider-images/image01.jpeg', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''},
-											{image : 'src/img/slider-images/image02.png', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''},
-											{image : 'src/img/slider-images/image03.jpeg', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''},
+											{image : 'src/img/slider-images/image01.jpg', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''},
+											{image : 'src/img/slider-images/image02.jpg', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''},
+											{image : 'src/img/slider-images/image03.jpg', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''},
 											{image : 'src/img/slider-images/image04.jpg', title : '<div class="slide-content">Kenny Do</div>', thumb : '', url : ''}  
 									],
 									
@@ -216,7 +216,7 @@ BRUSHED.contactForm = function(){
 /* ==================================================
    Twitter Feed
 ================================================== */
-
+/*
 BRUSHED.tweetFeed = function(){
 	
 	var valueTop = -64; // Margin Top Value
@@ -244,7 +244,7 @@ BRUSHED.tweetFeed = function(){
 	});
 	
 }
-
+*/
 
 /* ==================================================
    Menu Highlight

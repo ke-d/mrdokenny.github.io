@@ -378,23 +378,22 @@
     <div class="row">
     	<div class="span9">
         
-        	<form name="contactForm" id="contact-form" class="contact-form" onsubmit="return validateForm()" action="https://formspree.io/mrdokenny@gmail.com" method="POST">
+        	<form name="contactForm" id="contact-form" class="contact-form" action="https://formspree.io/mrdokenny@gmail.com" method="POST">
             	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" />
+            		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" required/>
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="email" placeholder="Email Address" value="" name="_replyto" />
+                	<input id="contact_email" type="email" placeholder="Email Address" value="" name="_replyto" required/>
                 </p>
                 <p class="contact-message">
-                	<textarea id="contact_message" placeholder="Your Message" name="message" rows="15" cols="40"></textarea>
+                	<textarea id="contact_message" placeholder="Your Message" name="message" rows="15" cols="40" required></textarea>
                 </p>
 				<input type="text" name="_gotcha" style="display:none" />
                 <p class="contact-submit">
 					<input type="submit" value="Send" class="submit">
                 </p>
-                
             </form>
-         
+       
         </div>
         
         <div class="span3">

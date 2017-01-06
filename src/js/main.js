@@ -167,7 +167,7 @@ BRUSHED.fancyBox = function(){
 					this.title = $(this.element).attr('title');
 //					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '</p>';
 					//Added External Links on Project Page
-					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '<br>' + $(this.element).parent().find('.externalLinks').html() + '</p>';
+					this.title = '<h4>' + this.title + '</h4>' + $(this.element).parent().find('.projectDescription').html();
 				},
 				helpers : {
 					title : { type: 'inside' },

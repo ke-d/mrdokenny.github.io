@@ -239,10 +239,10 @@
     <!-- End Title Page -->
     
     <!-- People -->
-    <div class="">
+    <div class="row">
     	
         <!-- Start Profile -->
-    	<div class="span4 profile row" id="aboutKenny">
+    	<div class="span6 profile row">
         	<div class="image-wrap">
                 <div class="hover-wrap">
                     <span class="overlay-img"></span>
@@ -250,10 +250,10 @@
                 </div>
                 <img src="src/img/profile/professional.jpg" alt="Kenny Do">
             </div>
-            <h3 class="profile-name">Kenny Do - <a href="https://dl.dropboxusercontent.com/u/9081457/CSULB/Career/Kenny%20Do_Resume.pdf">Resume</a></h3>
+            <h3 class="profile-name">Kenny Do</h3>
             <p class="profile-description">I currently study Computer Science at CSULB. I have been interested in technology ever since I used my first computer at around 6.
 											Through my interest, I learned how to tinker with stuff whether that be hardware or software. My interests are varied, going from Video Games to Web Development.
-											I tinker with whatever I find interesting. So if I see a project or if I have an idea, then I would see how would I implement it. In the process, I learned a lot from my projects.</p>
+											I tinker with whatever I find interesting. So if I see a project or if I have an idea that I like, then I would see how would I implement it. In the process, I learned a lot from my projects.</p>
             	
             <div class="social">
             	<ul class="social-icons">
@@ -264,10 +264,97 @@
             </div>
         </div>
         <!-- End Profile -->
-        
+            <div class="span6">
+            	<h3 class="spec" id="resumeHeader">Resume</h3>
+                
+            	<!-- Start Toggle -->
+                <div class="accordion" id="toggleArea">
+                
+                    <div class="accordion-group">
+                        <div class="accordion-heading togglize">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne">
+                                Education
+                                <span class="font-icon-plus"></span>
+                                <span class="font-icon-minus"></span>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse">
+                            <div class="accordion-inner">
+								Bachelor of Science in Computer Science<br>
+								California State University, Long Beach
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading togglize">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTwo">
+                            Programming Languages
+                            <span class="font-icon-plus"></span>
+                            <span class="font-icon-minus"></span>
+                        </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+							Most Experienced
+								 <ul>
+									<li>Java</li>
+								</ul>
+							Some Experience
+								 <ul>
+									<li>C#</li>
+									<li>C++</li>
+								</ul> 	
+							Novice Experience
+								 <ul>
+									<li>HTML</li>
+									<li>CSS</li>
+									<li>JavaScript</li>
+								</ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading togglize">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseThird">
+                            Software and Operating Systems
+                            <span class="font-icon-plus"></span>
+                            <span class="font-icon-minus"></span>
+                        </a>
+                        </div>
+                        <div id="collapseThird" class="accordion-body collapse">
+                            <div class="accordion-inner">
+							Software
+								 <ul>
+									<li>Eclipse</li>
+									<li>Sublime</li>
+									<li>Notepad++</li>
+									<li>Unity</li>
+									<li>GitHub</li>
+									<li>Git</li>
+									<li>Trello</li>
+									<li>VirtualBox</li>
+									<li>Adobe Photoshop</li>
+									<li>Sony Vegas Pro</li>		
+									<li>Microsoft Office (Word, Powerpoint, Excel)</li>										
+								</ul> 
+							Operating Systems
+								 <ul>
+									<li>Windows</li>
+									<li>Linux</li>
+								</ul> 
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- End Toggle -->
+            </div>
         
     </div>
     <!-- End People -->
+
 </div>
 </div>
 <!-- End About Section -->
@@ -291,7 +378,7 @@
     <div class="row">
     	<div class="span9">
         
-        	<form id="contact-form" class="contact-form" action="https://formspree.io/mrdokenny@gmail.com" method="POST">
+        	<form name="contactForm" id="contact-form" class="contact-form" onsubmit="return validateForm()" action="https://formspree.io/mrdokenny@gmail.com" method="POST">
             	<p class="contact-name">
             		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" />
                 </p>

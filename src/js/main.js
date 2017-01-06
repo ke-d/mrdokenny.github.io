@@ -186,7 +186,7 @@ BRUSHED.fancyBox = function(){
 /* ==================================================
    Contact Form
 ================================================== */
-
+/*
 BRUSHED.contactForm = function(){
 	$("#contact-submit").on('click',function() {
 		$contact_form = $('#contact-form');
@@ -212,6 +212,21 @@ BRUSHED.contactForm = function(){
 	});
 }
 
+*/
+function validateForm() {
+
+	if( document.forms["contactForm"]["name"].value == "" ) {
+		alert( "Please provide your name!" );
+		document.forms["contactForm"]["name"].focus() ;
+		return false;
+	}
+
+	if( document.forms["contactForm"]["_replyto"].value == "" ) {
+		alert( "Please provide your Email!" );
+		document.forms["contactForm"]["_replyto"].focus() ;
+		return false;
+	}
+}
 
 /* ==================================================
    Twitter Feed

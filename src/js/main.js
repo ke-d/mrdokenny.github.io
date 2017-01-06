@@ -165,7 +165,9 @@ BRUSHED.fancyBox = function(){
 				padding : 0,
 				beforeShow: function () {
 					this.title = $(this.element).attr('title');
-					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '</p>';
+//					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '</p>';
+					//Added External Links on Project Page
+					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '<br>' + $(this.element).parent().find('.externalLinks').html() + '</p>';
 				},
 				helpers : {
 					title : { type: 'inside' },
@@ -213,20 +215,7 @@ BRUSHED.contactForm = function(){
 }
 
 */
-function validateForm() {
 
-	if( document.forms["contactForm"]["name"].value == "" ) {
-		alert( "Please provide your name!" );
-		document.forms["contactForm"]["name"].focus() ;
-		return false;
-	}
-
-	if( document.forms["contactForm"]["_replyto"].value == "" ) {
-		alert( "Please provide your Email!" );
-		document.forms["contactForm"]["_replyto"].focus() ;
-		return false;
-	}
-}
 
 /* ==================================================
    Twitter Feed

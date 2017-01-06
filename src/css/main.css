@@ -196,7 +196,6 @@ pre code {
    Typography
 ================================================== */
 
-h1,
 h2,
 h3,
 h4,
@@ -210,7 +209,7 @@ h6{
 }
 
 h1{
-	font-size:48px;
+	font: 400 72px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h2{
@@ -308,12 +307,21 @@ h3.spec {
 }
 
 #home-slider .slider-text {
+	/*
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	margin: -150px 0 0 -585px;
 	width: 1170px;
 	height: 250px;
+	text-align: center;
+	z-index: 2;	
+	*/
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -70px 0 0 -585px;
+	width: 1170px;
 	text-align: center;
 	z-index: 2;	
 }
@@ -327,10 +335,14 @@ h3.spec {
 }
 
 #home-slider .slide-content {
+	/*
 	font-size: 60px;
 	color: #FFFFFF;
 	letter-spacing: -3px;
 	text-transform: uppercase;	
+	*/
+	color: #FFFFFF;
+	text-transform: uppercase;
 }
 
 #home-slider .control-nav {

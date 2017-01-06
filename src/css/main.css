@@ -787,10 +787,8 @@ nav#menu #menu-nav li a:hover {
 	text-align: center;
 }
 
-#aboutKenny {
-	float: none;
-	margin: 0 auto;
-	width:  45%;
+#resumeHeader {
+	text-align: center;
 }
 
 .image-wrap {

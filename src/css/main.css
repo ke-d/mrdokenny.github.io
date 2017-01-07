@@ -285,6 +285,27 @@ h3.spec {
 .margin-80{
 	margin-bottom:80px !important;
 }
+/* ==================================================
+   Fancy Box Overrides
+================================================== */
+
+.fancybox-skin {
+	position: relative;
+	background: #2F3238;
+	color: #7F8289;
+	text-shadow: none;
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+	        border-radius: 0;
+}
+
+.fancybox-title-inside-wrap {
+	padding: 25px 30px 30px;
+}
+
+.fancybox-title {
+	font: inherit;
+}
 
 /* ==================================================
    Home Slider

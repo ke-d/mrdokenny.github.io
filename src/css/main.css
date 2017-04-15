@@ -939,6 +939,9 @@ nav#menu #menu-nav li a:hover {
 /* ==================================================
    Contact Section
 ================================================== */
+.contact-details {
+	text-align: center;
+}
 
 .contact-details h3 {
 	color: #FFFFFF;

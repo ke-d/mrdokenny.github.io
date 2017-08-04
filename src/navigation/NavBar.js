@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Nav from 'react-bootstrap/lib/Nav';
-import { LinkContainer } from 'react-router-bootstrap';
+import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
 import { Link } from 'react-router-dom';
 
 

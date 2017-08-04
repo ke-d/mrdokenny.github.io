@@ -1,0 +1,37 @@
+{
+  "projects": [
+    {
+      "title": "Echos of Tikkun",
+      "description": "My first major project in college with the Video Game Development Association. This project helped me learn the inner workings on how to make a video game. I used the Unity Game Engine which uses C# primarily.",
+      "projectLink": "https://play.google.com/store/apps/details?id=com.VGDA.EchoesOfTikkun&hl=en",
+      "githubLink": "https://github.com/technicalvgda/Adagio",
+      "src": "image-01.jpg",
+      "alt": "The three goddess in Echos of Tikkun"
+    },
+    {
+      "title": "Skulls and Asteroids",
+      "description": "After Echoes of Tikkun, I wanted to try making a game on my own. During my first Hackathon (BeachHacks), I decided to join with a couple of my peers from VGDA and a couple of people outside of the association. The result was Skulls and Asteroids.",
+      "projectLink": "https://play.google.com/store/apps/details?id=com.MachinaGames.SkullsandAsteroids&hl=en",
+      "githubLink": "https://github.com/mrdokenny/Skulls-and-Asteroids",
+      "src": "image-02.jpg",
+      "alt": "The gameplay of Skulls and Asteroids"
+    },
+    {
+      "title": "History AutoDelete",
+      "description": "This is another passion project of mine. An annoyance that I had with Google Maps was that every time I moved the map, it would spawn 3-4 history entries. So after 5 minutes, I might have over 100 history entries. This extension is suppose to stop that from happening. This project introduced me to HTML, CSS, and JavaScript.",
+      "projectLink": "https://chrome.google.com/webstore/detail/history-autodelete/bhfakmaiadhflpjloimlagikhodjiefj",
+      "githubLink": "https://github.com/mrdokenny/History-AutoDelete",
+      "src": "image-03.jpg",
+      "alt": "The popup menu of History AutoDelete"
+    },
+    {
+      "title": "Cookie AutoDelete",
+      "description": "After History AutoDelete, I wanted to port Self Destructing Cookies which I think is an amazing cookie policy for web browsers that compromises between privacy and convenience. This extension will delete all unused cookies on tab close. Unused means that if all google.com tabs are closed then google.com cookies are cleared, automating the cookie process.",
+      "projectLink": "https://chrome.google.com/webstore/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh",
+      "githubLink": "https://github.com/mrdokenny/Cookie-AutoDelete",
+      "src": "image-05.jpg",
+      "alt": "The popup menu and notifications of History AutoDelete"
+    }
+
+  ]
+}

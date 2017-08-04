@@ -34,7 +34,7 @@ class Home extends React.Component {
           <div style={{
             ...styles.fill,
             height: `${this.state.height}px`,
-            backgroundImage: `url(${img1})`,
+            backgroundImage: `url(${img2})`,
           }}/>
         </Carousel.Item>
 
@@ -42,7 +42,7 @@ class Home extends React.Component {
           <div style={{
             ...styles.fill,
             height: `${this.state.height}px`,
-            backgroundImage: `url(${img2})`,
+            backgroundImage: `url(${img1})`,
           }}/>
         </Carousel.Item>
 

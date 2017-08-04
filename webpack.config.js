@@ -29,15 +29,23 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         exclude: /node_modules/,
         use: [
+          { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' },
           {
-            loader: 'url-loader',
-            options: {
-              limit: 8192
+            loader: 'image-webpack-loader',
+            query: {
+              mozjpeg: {
+                bypassOnDebug: true,
+                quality: 75
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 3
+              }
             }
-          }
+          },
         ]
       },
     ]

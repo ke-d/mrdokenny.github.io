@@ -19,7 +19,6 @@ const ProjectContainer = (props) => {
         <p>
           {
               projectLinks.map((element, index) => {
-                console.log(element);
                 return (
                   <Button key={index} href={element.linkURL} bsStyle={linkType[element.linkType]} style={{margin: "0 10px 10px 0"}}>{element.linkName}</Button>
                 );

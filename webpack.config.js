@@ -58,6 +58,10 @@ module.exports = {
         }
       }),
       new webpack.optimize.UglifyJsPlugin(), //minify everything
-      new webpack.optimize.AggressiveMergingPlugin()//Merge chunks
+      new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
+      new webpack.optimize.CommonsChunkPlugin({
+        children: true, // necessary for splitting children chunks
+        async: true // necessary for async loading chunks
+      })
     ],
 };

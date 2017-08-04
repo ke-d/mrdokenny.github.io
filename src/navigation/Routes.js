@@ -1,12 +1,24 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { RouteTransition } from 'react-router-transition';
-import Home from '../components/Home';
-import Projects from '../components/Projects';
-import About from '../components/About';
-import Contact from '../components/Contact';
+import { asyncComponent } from 'react-async-loading';
+import Spinner from 'react-spinner-material';
+//<div style={{textAlign: 'center'}}>Loading...</div>
+const LoadingComponent = () => (
+  <Spinner
+    size={120}
+    spinnerColor={"#333"}
+    spinnerWidth={2}
+    visible={true}
+  />
+);
 
-import PageNotFound from '../components/PageNotFound';
+const HomeRoute = asyncComponent(() => System.import('../components/Home'), { placeholder: <LoadingComponent /> });
+const ProjectsRoute = asyncComponent(() => System.import('../components/Projects'), { placeholder: <LoadingComponent />  });
+const AboutRoute = asyncComponent(() => System.import('../components/About'), { placeholder: <LoadingComponent />  });
+const ContactRoute = asyncComponent(() => System.import('../components/Contact'), { placeholder: <LoadingComponent />  });
+const PageNotFoundRoute = asyncComponent(() => System.import('../components/PageNotFound'), { placeholder: <LoadingComponent />  });
+
 
 const Routes = () => (
   <Route render={({location, history, match}) => {
@@ -20,11 +32,11 @@ const Routes = () => (
         runOnMount={true}
       >
       <Switch key={location.key} location={location}>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/contact" component={Contact} />
-        <Route component={PageNotFound} />
+        <Route exact path="/" component={HomeRoute} />
+        <Route exact path="/projects" component={ProjectsRoute} />
+        <Route exact path="/about" component={AboutRoute} />
+        <Route exact path="/contact" component={ContactRoute} />
+        <Route component={PageNotFoundRoute} />
       </Switch>
       </RouteTransition>
     );

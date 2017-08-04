@@ -18,8 +18,7 @@ const Projects = () => {
               title={element.title}
               description={element.description}
               src={pathToImg(`./${element.src}`, true)}
-              githubLink={element.githubLink}
-              projectLink={element.projectLink}
+              projectLinks={element.projectLinks}
               alt={element.alt}
             />
           ))

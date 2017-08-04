@@ -3,34 +3,122 @@
     {
       "title": "Echos of Tikkun",
       "description": "My first major project in college with the Video Game Development Association. This project helped me learn the inner workings on how to make a video game. I used the Unity Game Engine which uses C# primarily.",
-      "projectLink": "https://play.google.com/store/apps/details?id=com.VGDA.EchoesOfTikkun&hl=en",
-      "githubLink": "https://github.com/technicalvgda/Adagio",
+      "projectLinks": [
+        {
+          "linkName": "GitHub",
+          "linkType": "GITHUB",
+          "linkURL": "https://github.com/technicalvgda/Adagio"
+        },
+        {
+          "linkName": "Play Store",
+          "linkType": "PRODUCT",
+          "linkURL": "https://play.google.com/store/apps/details?id=com.VGDA.EchoesOfTikkun&hl=en"
+        }
+
+      ],
       "src": "image-01.jpg",
       "alt": "The three goddess in Echos of Tikkun"
     },
     {
       "title": "Skulls and Asteroids",
       "description": "After Echoes of Tikkun, I wanted to try making a game on my own. During my first Hackathon (BeachHacks), I decided to join with a couple of my peers from VGDA and a couple of people outside of the association. The result was Skulls and Asteroids.",
-      "projectLink": "https://play.google.com/store/apps/details?id=com.MachinaGames.SkullsandAsteroids&hl=en",
-      "githubLink": "https://github.com/mrdokenny/Skulls-and-Asteroids",
+      "projectLinks": [
+        {
+          "linkName": "GitHub",
+          "linkType": "GITHUB",
+          "linkURL": "https://github.com/mrdokenny/Skulls-and-Asteroids"
+        },
+        {
+          "linkName": "Play Store",
+          "linkType": "PRODUCT",
+          "linkURL": "https://play.google.com/store/apps/details?id=com.MachinaGames.SkullsandAsteroids&hl=en"
+        }
+
+      ],
       "src": "image-02.jpg",
       "alt": "The gameplay of Skulls and Asteroids"
     },
     {
       "title": "History AutoDelete",
       "description": "This is another passion project of mine. An annoyance that I had with Google Maps was that every time I moved the map, it would spawn 3-4 history entries. So after 5 minutes, I might have over 100 history entries. This extension is suppose to stop that from happening. This project introduced me to HTML, CSS, and JavaScript.",
-      "projectLink": "https://chrome.google.com/webstore/detail/history-autodelete/bhfakmaiadhflpjloimlagikhodjiefj",
-      "githubLink": "https://github.com/mrdokenny/History-AutoDelete",
+      "projectLinks": [
+        {
+          "linkName": "GitHub",
+          "linkType": "GITHUB",
+          "linkURL": "https://github.com/mrdokenny/History-AutoDelete"
+        },
+        {
+          "linkName": "Chrome",
+          "linkType": "PRODUCT",
+          "linkURL": "https://chrome.google.com/webstore/detail/history-autodelete/bhfakmaiadhflpjloimlagikhodjiefj"
+        },
+        {
+          "linkName": "Firefox",
+          "linkType": "PRODUCT",
+          "linkURL": "https://addons.mozilla.org/firefox/addon/history-autodelete"
+        },
+        {
+          "linkName": "Softpedia Review",
+          "linkType": "MEDIA",
+          "linkURL": "http://www.softpedia.com/get/Internet/Internet-Applications-Addons/Chrome-Extensions/History-AutoDelete-for-Chrome.shtml"
+        }
+
+      ],
       "src": "image-03.jpg",
       "alt": "The popup menu of History AutoDelete"
     },
     {
       "title": "Cookie AutoDelete",
       "description": "After History AutoDelete, I wanted to port Self Destructing Cookies which I think is an amazing cookie policy for web browsers that compromises between privacy and convenience. This extension will delete all unused cookies on tab close. Unused means that if all google.com tabs are closed then google.com cookies are cleared, automating the cookie process.",
-      "projectLink": "https://chrome.google.com/webstore/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh",
-      "githubLink": "https://github.com/mrdokenny/Cookie-AutoDelete",
+      "projectLinks": [
+        {
+          "linkName": "GitHub",
+          "linkType": "GITHUB",
+          "linkURL": "https://github.com/mrdokenny/Cookie-AutoDelete"
+        },
+        {
+          "linkName": "Chrome",
+          "linkType": "PRODUCT",
+          "linkURL": "https://chrome.google.com/webstore/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh"
+        },
+        {
+          "linkName": "Firefox",
+          "linkType": "PRODUCT",
+          "linkURL": "https://addons.mozilla.org/firefox/addon/cookie-autodelete"
+        },
+        {
+          "linkName": "Softpedia Review",
+          "linkType": "MEDIA",
+          "linkURL": "http://www.softpedia.com/get/Internet/Internet-Applications-Addons/Chrome-Extensions/Cookie-AutoDelete.shtml"
+        },
+        {
+          "linkName": "Ghacks Review",
+          "linkType": "MEDIA",
+          "linkURL": "https://www.ghacks.net/2017/05/15/cookie-autodelete-for-firefox-webextension/"
+        }
+      ],
+
       "src": "image-05.jpg",
-      "alt": "The popup menu and notifications of History AutoDelete"
+      "alt": "The popup menu and notifications of Cookie AutoDelete"
+    },
+    {
+      "title": "Personal Website",
+      "description": "Using a boilerplate as a starting point, I turned it into what you see here today. All this was from scratch using React Components and BootStrap, taking into inspiration of my old website which was a template. The result is a personal website with more modern components (React Framework and BootStrap 4.0) and easier expandability (maybe a blog?).",
+      "projectLinks": [
+        {
+          "linkName": "GitHub",
+          "linkType": "GITHUB",
+          "linkURL": "https://github.com/mrdokenny/mrdokenny.github.io"
+        },
+        {
+          "linkName": "Original Boilerplate",
+          "linkType": "GITHUB",
+          "linkURL": "http://spa-github-pages.rafrex.com/"
+        }
+      ],
+
+      "src": "websitePic.jpg",
+      "alt": "The home page of this website"
     }
 
   ]

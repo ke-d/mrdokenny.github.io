@@ -16,7 +16,7 @@
         }
 
       ],
-      "src": "image-01.jpg",
+      "src": "echos-of-tikkun.jpg",
       "alt": "The three goddess in Echos of Tikkun"
     },
     {
@@ -35,7 +35,7 @@
         }
 
       ],
-      "src": "image-02.jpg",
+      "src": "skulls-and-asteroids.jpg",
       "alt": "The gameplay of Skulls and Asteroids"
     },
     {
@@ -64,7 +64,7 @@
         }
 
       ],
-      "src": "image-03.jpg",
+      "src": "history-autodelete.png",
       "alt": "The popup menu of History AutoDelete"
     },
     {
@@ -98,8 +98,8 @@
         }
       ],
 
-      "src": "image-05.jpg",
-      "alt": "The popup menu and notifications of Cookie AutoDelete"
+      "src": "cookie-autodelete.png",
+      "alt": "The popup menu of of Cookie AutoDelete showing deleted cookies on github.com"
     },
     {
       "title": "Personal Website",
@@ -117,7 +117,7 @@
         }
       ],
 
-      "src": "websitePic.jpg",
+      "src": "website-pic.jpg",
       "alt": "The home page of this website"
     }
 

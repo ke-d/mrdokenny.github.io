@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/lib/Row';
 import ProjectContainer from './ProjectContainer';
 import ProjectFiles from '../projects.json';
 
-const pathToImg = require.context('../img/work/thumbs', true);
+const pathToImg = require.context('../img/projects', true);
 
 const Projects = () => {
   return (

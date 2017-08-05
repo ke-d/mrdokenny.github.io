@@ -14,7 +14,7 @@ const NavBar = () => {
       <Navbar.Header>
         <Navbar.Brand>
         <LinkContainer to="/">
-          <a>Kenny Do</a>
+          <a>Kenny Do | Developer</a>
         </LinkContainer>
         </Navbar.Brand>
         <Navbar.Toggle />

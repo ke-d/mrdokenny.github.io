@@ -20,29 +20,40 @@ const ContactRoute = asyncComponent(() => System.import('../components/Contact')
 const PageNotFoundRoute = asyncComponent(() => System.import('../components/PageNotFound'), { placeholder: <LoadingComponent />  });
 
 
-const Routes = () => (
-  <Route render={({location, history, match}) => {
+const RoutePath = ({location}) => (
+  <Switch key={location.key} location={location}>
+    <Route exact path="/" component={HomeRoute} />
+    <Route exact path="/projects" component={ProjectsRoute} />
+    <Route exact path="/about" component={AboutRoute} />
+    <Route exact path="/contact" component={ContactRoute} />
+    <Route component={PageNotFoundRoute} />
+  </Switch>
+);
 
+const Routes = () => {
+  // Enable the route transition if not on mobile
+  if(window.innerWidth >= 768) {
     return (
-      <RouteTransition
-        pathname={location.pathname}
-        atEnter={{ opacity: 0 }}
-        atLeave={{  }}
-        atActive={{ opacity: 1 }}
-        runOnMount={true}
-      >
-      <Switch key={location.key} location={location}>
-        <Route exact path="/" component={HomeRoute} />
-        <Route exact path="/projects" component={ProjectsRoute} />
-        <Route exact path="/about" component={AboutRoute} />
-        <Route exact path="/contact" component={ContactRoute} />
-        <Route component={PageNotFoundRoute} />
-      </Switch>
-      </RouteTransition>
+      <Route render={({location, history, match}) => (
+          <RouteTransition
+          pathname={location.pathname}
+          atEnter={{ opacity: 0 }}
+          atLeave={{  }}
+          atActive={{ opacity: 1 }}
+          runOnMount={true}
+          >
+            <RoutePath location={location}/>
+          </RouteTransition>
+        )} />
     );
 
-  }} />
-
-);
+  } else {
+    return (
+      <Route render={({location, history, match}) => (
+          <RoutePath location={location}/>
+        )} />
+    );
+  }
+};
 
 export default Routes;

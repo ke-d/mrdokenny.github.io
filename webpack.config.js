@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-
-module.exports = {
+const isProd = (process.env.NODE_ENV === 'production');
+let config = {
   entry: `${__dirname}/src/index.js`,
   output: {
     path: `${__dirname}/build`,
@@ -28,26 +28,7 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        exclude: /node_modules/,
-        use: [
-          { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' },
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              mozjpeg: {
-                bypassOnDebug: true,
-                quality: 75
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 3
-              }
-            }
-          },
-        ]
-      },
+
     ]
   },
 
@@ -65,3 +46,36 @@ module.exports = {
       })
     ],
 };
+
+// Compress image if production build
+if(isProd) {
+  config.module.rules.push({
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          exclude: /node_modules/,
+          use: [
+            { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' },
+            {
+              loader: 'image-webpack-loader',
+              query: {
+                mozjpeg: {
+                  quality: 65
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 3
+                }
+              }
+            },
+          ]
+        });
+} else {
+  config.module.rules.push({
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          exclude: /node_modules/,
+          use: [
+            { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' }
+          ]
+        });
+}
+
+module.exports = config;

@@ -2,23 +2,13 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { RouteTransition } from 'react-router-transition';
 import { asyncComponent } from 'react-async-loading';
-import Spinner from 'react-spinner-material';
-//<div style={{textAlign: 'center'}}>Loading...</div>
-const LoadingComponent = () => (
-  <Spinner
-    size={120}
-    spinnerColor={"#333"}
-    spinnerWidth={2}
-    visible={true}
-  />
-);
+import LoadingComponent from '../components/Loading'
 
 const HomeRoute = asyncComponent(() => System.import('../components/Home'), { placeholder: <LoadingComponent /> });
 const ProjectsRoute = asyncComponent(() => System.import('../components/Projects'), { placeholder: <LoadingComponent />  });
 const AboutRoute = asyncComponent(() => System.import('../components/About'), { placeholder: <LoadingComponent />  });
 const ContactRoute = asyncComponent(() => System.import('../components/Contact'), { placeholder: <LoadingComponent />  });
 const PageNotFoundRoute = asyncComponent(() => System.import('../components/PageNotFound'), { placeholder: <LoadingComponent />  });
-
 
 const RoutePath = ({location}) => (
   <Switch key={location.key} location={location}>

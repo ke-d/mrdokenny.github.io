@@ -1,7 +1,10 @@
 const webpack = require('webpack');
 const isProd = (process.env.NODE_ENV === 'production');
 let config = {
-  entry: `${__dirname}/src/index.js`,
+  entry: {
+    app: `${__dirname}/src/index.js`,
+    vendor: ['react', 'react-dom', 'react-router', 'react-router-dom', 'prop-types', 'react-async-loading', 'react-router-transition']
+  },
   output: {
     path: `${__dirname}/build`,
     publicPath: '/build/',
@@ -41,8 +44,13 @@ let config = {
       new webpack.optimize.UglifyJsPlugin(), //minify everything
       new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
       new webpack.optimize.CommonsChunkPlugin({
-        children: true, // necessary for splitting children chunks
-        async: true // necessary for async loading chunks
+        children: true,
+        async: true
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        chunks: ['app'],
+        filename: 'vendor.js'
       })
     ],
 };

@@ -26,7 +26,7 @@
         }
 
       ],
-      "src": "history-autodelete.png",
+      "src": "history-autodelete.gif",
       "alt": "The popup menu of History AutoDelete"
     },
     {
@@ -60,7 +60,7 @@
         }
       ],
 
-      "src": "cookie-autodelete.png",
+      "src": "cookie-autodelete.gif",
       "alt": "The popup menu of of Cookie AutoDelete showing deleted cookies on github.com"
     },
     {

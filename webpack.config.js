@@ -82,7 +82,7 @@ if(isProd) {
           use: [
             { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' },
             {
-              loader: 'image-webpack-loader'
+              loader: 'img-loader'
             },
           ]
         });

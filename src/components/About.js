@@ -1,10 +1,13 @@
 import React from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import Accordion from 'react-bootstrap/lib/Accordion';
-import Panel from 'react-bootstrap/lib/Panel';
+
+import {
+  Grid,
+  Row,
+  Col,
+  Thumbnail,
+  Accordion,
+  Panel
+} from 'react-bootstrap';
 import BioPic from '../img/cartoon_crop.png';
 
 const About = () => {

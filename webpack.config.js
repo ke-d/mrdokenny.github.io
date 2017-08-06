@@ -1,9 +1,21 @@
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const isProd = (process.env.NODE_ENV === 'production');
 let config = {
   entry: {
     app: `${__dirname}/src/index.js`,
-    vendor: ['react', 'react-dom', 'react-router', 'react-router-dom', 'prop-types', 'react-async-loading', 'react-router-transition']
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router',
+      'react-router-dom',
+      'prop-types',
+      'react-async-loading',
+      'react-router-transition',
+      'react-bootstrap',
+      'react-social-icons',
+      'react-router-bootstrap'
+    ]
   },
   output: {
     path: `${__dirname}/build`,
@@ -51,6 +63,9 @@ let config = {
         name: 'vendor',
         chunks: ['app'],
         filename: 'vendor.js'
+      }),
+      new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
       })
     ],
 };

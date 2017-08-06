@@ -64,6 +64,9 @@ let config = {
         chunks: ['app'],
         filename: 'vendor.js'
       }),
+      new webpack.optimize.MinChunkSizePlugin({
+        minChunkSize: 10000 // Minimum number of characters
+      }),
       new BundleAnalyzerPlugin({
             analyzerMode: 'static'
       })

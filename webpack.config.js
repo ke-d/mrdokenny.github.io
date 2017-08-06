@@ -82,16 +82,7 @@ if(isProd) {
           use: [
             { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' },
             {
-              loader: 'image-webpack-loader',
-              query: {
-                mozjpeg: {
-                  quality: 65
-                },
-                pngquant: {
-                  quality: '65-90',
-                  speed: 3
-                }
-              }
+              loader: 'image-webpack-loader'
             },
           ]
         });

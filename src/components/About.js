@@ -44,12 +44,13 @@ const About = () => {
 
             <Panel header={`Frameworks`} eventKey={2}>
               <ul>
-                <li>React</li>
-                <li>React Native</li>
-                <li>React Redux</li>
-                <li>Apollo</li>
-                <li>GraphQL via Graph.Cool</li>
-                <li>BootStrap</li>
+                <li><a href="https://facebook.github.io/react/">React</a></li>
+                <li><a href="https://facebook.github.io/react/docs/react-dom.html">React DOM</a></li>
+                <li><a href="https://facebook.github.io/react-native/">React Native</a></li>
+                <li><a href="http://redux.js.org/">Redux</a></li>
+                <li><a href="http://dev.apollodata.com/">Apollo</a></li>
+                <li><a href="http://graphql.org/">GraphQL</a> via <a href="https://www.graph.cool/">Graph.Cool</a></li>
+                <li><a href="https://getbootstrap.com/">BootStrap</a> and <a href="https://react-bootstrap.github.io/">React-BootStrap</a></li>
               </ul>
             </Panel>
 
@@ -58,9 +59,10 @@ const About = () => {
               <ul>
                 <li>GitHub</li>
                 <li>Eclipse</li>
+                <li>Atom</li>
                 <li>Trello</li>
                 <li>Microsoft Office (Word, Powerpoint, Excel)</li>
-                <li>Graph.Cool (Serverless backend as a service)</li>
+                <li><a href="https://www.graph.cool/">Graph.Cool</a> (Serverless backend as a service)</li>
               </ul>
               Operating Systems
               <ul>

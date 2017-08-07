@@ -27,7 +27,7 @@
 
       ],
       "src": "history-autodelete.gif",
-      "alt": "The popup menu of History AutoDelete"
+      "alt": "A GIF showing how History AutoDelete can prevent multiple history entries from the same domain"
     },
     {
       "title": "Cookie AutoDelete",
@@ -61,17 +61,12 @@
       ],
 
       "src": "cookie-autodelete.gif",
-      "alt": "The popup menu of of Cookie AutoDelete showing deleted cookies on github.com"
+      "alt": "A GIF showing the cleanup operation of Cookie AutoDelete on github.com"
     },
     {
       "title": "Personal Website",
-      "description": "Using a boilerplate as a starting point, I turned it into what you see here today. All this was from scratch using React Components and BootStrap, taking into inspiration of my old website which was a template. The result is a personal website with more modern components (React Framework and BootStrap 3 via React-BootStrap) and easier expandability (maybe a blog?). On the technical side, this site functions like a web app since all routes are lazy loaded in the background. So, when you enter a new route, it is loaded underneath without a browser page load. However, since the chunks for some routes were so small, I set up Webpack to automatically merge chunks to reach a minimum size to avoid multiple HTTP request per chunk.",
+      "description": "Using a boilerplate as a starting point, I turned it into what you see here today. All this was from scratch using React Components and BootStrap, taking into inspiration of my old website which was a template. The result is a personal website with more modern components (React Framework and BootStrap 3 via React-BootStrap) and easier expandability (maybe a blog?).",
       "projectLinks": [
-        {
-          "linkName": "GitHub",
-          "linkType": "GITHUB",
-          "linkURL": "https://github.com/mrdokenny/mrdokenny.github.io"
-        },
         {
           "linkName": "Original Boilerplate",
           "linkType": "GITHUB",

@@ -9,12 +9,12 @@ let config = {
       'react-dom',
       'react-router',
       'react-router-dom',
-      'prop-types',
       'react-async-loading',
       'react-router-transition',
       'react-bootstrap',
       'react-social-icons',
-      'react-router-bootstrap'
+      'react-router-bootstrap',
+      'react-spinner-material'
     ]
   },
   output: {
@@ -66,7 +66,7 @@ let config = {
         filename: 'vendor.js'
       }),
       new webpack.optimize.MinChunkSizePlugin({
-        minChunkSize: 10000 // Minimum number of characters
+        minChunkSize: 100000 // Minimum number of characters
       }),
       new BundleAnalyzerPlugin({
             analyzerMode: 'static'

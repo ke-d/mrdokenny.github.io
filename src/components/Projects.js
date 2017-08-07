@@ -29,7 +29,7 @@ class Projects extends React.Component {
   render() {
     return (
       <Grid>
-        <Row><div className="thumbnail"><h2 style={styles.center}>Click on an Image to Enlarge</h2></div></Row>
+        <Row><div className="thumbnail"><h2 style={styles.center}>Click on an Image/Gif to Enlarge</h2></div></Row>
         <Row>
 
           {
@@ -51,7 +51,7 @@ class Projects extends React.Component {
 
           <Modal bsSize={"large"} show={this.state.showModal} onHide={() => this.close()}>
           <Modal.Header closeButton>
-            <Modal.Title>Project Images</Modal.Title>
+            <Modal.Title>Project Images/Gifs</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Carousel interval={null} defaultActiveIndex={this.state.openIndex}>

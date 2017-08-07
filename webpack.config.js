@@ -82,7 +82,14 @@ if(isProd) {
           use: [
             { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' },
             {
-              loader: 'img-loader'
+              loader: 'img-loader',
+              options: {
+                optipng: false, // disabled
+                pngquant: true,
+                gifsicle: {
+                  optimizationLevel: 3
+                },
+              }
             },
           ]
         });

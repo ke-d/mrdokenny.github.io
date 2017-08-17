@@ -1,12 +1,16 @@
-import React from 'react';
-
-const PageNotFound = ({ location }) => {
-  return (
-    <p>
-      Page not found - the path, <Code>{location.pathname}</Code>,
+import React from "react";
+import PropTypes from "prop-types";
+const PageNotFound = ({
+	location
+}) => (
+	<p>
+      Page not found - the path, <b>{location.pathname}</b>,
       did not match any React Router routes.
-    </p>
-  );
+	</p>
+);
+
+PageNotFound.propTypes = {
+	location: PropTypes.string
 };
 
 export default PageNotFound;

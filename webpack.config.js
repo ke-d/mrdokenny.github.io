@@ -14,7 +14,8 @@ let config = {
       'react-bootstrap',
       'react-social-icons',
       'react-router-bootstrap',
-      'react-spinner-material'
+      'react-spinner-material',
+      'prop-types'
     ]
   },
   output: {

@@ -76,6 +76,20 @@
 
       "src": "website-pic.jpg",
       "alt": "The home page of this website"
+    },
+    {
+      "title": "TicTacTuring",
+      "description": "To get me to learn React Native, which is using the framework of React to create mobile apps, I created a simple TicTacToe game that is inspired from Lynda.com's TicTacTuring that was written in React-DOM. The main addition is that it also connects to a serverless backend, Graph.Cool. With that, users can login and see the history of all their games.",
+      "projectLinks": [
+        {
+          "linkName": "GitHub",
+          "linkType": "GITHUB",
+          "linkURL": "https://github.com/mrdokenny/TicTacTuring"
+        }
+      ],
+
+      "src": "TicTacTuring.gif",
+      "alt": "A GIF showing how the mobile app operates"
     }
 
   ]

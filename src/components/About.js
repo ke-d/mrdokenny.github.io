@@ -31,19 +31,21 @@ const About = () => (
 				<Accordion>
 
 					<Panel header={"Languages"} eventKey={1}>
-              Experienced
+              Intermediate
 						<ul>
-							<li>JavaScript</li>
 							<li>HTML</li>
 							<li>CSS</li>
+							<li>JavaScript</li>
 							<li>Java</li>
+							<li>SQL</li>
 						</ul>
               Some Experience
 						<ul>
-							<li>SQL</li>
 							<li>Facebook GraphQL</li>
 							<li>Bash</li>
 							<li>C++</li>
+							<li>C#</li>
+							<li>Python</li>
 						</ul>
 					</Panel>
 

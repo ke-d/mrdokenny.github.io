@@ -67,11 +67,20 @@
       .carousel-inner {
           height: 100%;
       }
-      /*required for IE/Edge to be compatible with left:50vw & transform:translate(-50%, 0),
-      otherwise there is a phantom div on the right side of the screen (from the left:50vw),
-      that the window will scroll to. Note the left:50vw and transform is used to center content
-      horizaontally based on vw to prevent content jump when vertical scroll bar show/hide.*/
-      /*body { overflow-x: hidden; }*/
+
+      /* Responsive Project Containers */
+      /*@media (max-width: 768px) {
+        .caption {
+          height: "370px";
+          display: "flex";
+          flex-direction: "column";
+          justify-content: "center";
+        }
+
+        .projectImage {
+      		height: "240px";
+        }*/
+      }
     </style>
 
     <link rel="icon" href="src/img/cartoon_crop_32.png"/>

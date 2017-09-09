@@ -14,18 +14,19 @@ const pathToImg = require.context("../img/projects", true);
 const styles = {
 	image: {
 		margin: "auto",
-		width: "150em",
-		height: "auto"
+		width: "auto",
+		maxHeight: `${window.innerHeight-80}px`
 	},
 	center: {
 		textAlign: "center"
 	}
 };
 
-class Projects extends React.Component {
+class Projects extends React.PureComponent {
 		state = {
 			openIndex: 0,
-			showModal: false
+			showModal: false,
+			greater768: window.innerWidth > 768 ? true : false
 		}
 
 		close() {
@@ -38,6 +39,21 @@ class Projects extends React.Component {
 			this.setState({
 				showModal: true, openIndex
 			});
+		}
+
+		updateDimensions() {
+			this.setState({
+				greater768: window.innerWidth > 768 ? true : false
+			});
+		}
+
+		componentDidMount() {
+			this.updateDimensions();
+			window.addEventListener("resize", this.updateDimensions.bind(this));
+		}
+
+		componentWillUnmount() {
+			window.removeEventListener("resize", this.updateDimensions.bind(this));
 		}
 
 		render() {

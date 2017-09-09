@@ -11,9 +11,19 @@ const linkType = {
 };
 
 const styles = {
+	imageLargeScreen: {
+		cursor: "zoom-in",
+		height: "15em"
+	},
 	image: {
 		cursor: "zoom-in"
-	}
+	},
+	caption: {
+		height: "370px",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center"
+	},
 };
 
 const ProjectContainer = (props) => {
@@ -25,9 +35,9 @@ const ProjectContainer = (props) => {
 
 			<div className="thumbnail">
 
-				<img style={styles.image} onClick={() => openModal(projectIndex)} src={src} alt={`${alt}`} />
+				<img style={window.innerWidth > 768 ? styles.imageLargeScreen : styles.image} onClick={() => openModal(projectIndex)} src={src} alt={`${alt}`} />
 
-				<div className="caption">
+				<div style={window.innerWidth > 768 ? styles.caption : null} className="caption">
 					<h3>{`${title}`}</h3>
 					<p>{`${description}`}</p>
 					<p>

@@ -23,7 +23,7 @@ const styles = {
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "center"
-	},
+	}
 };
 
 const ProjectContainer = (props) => {

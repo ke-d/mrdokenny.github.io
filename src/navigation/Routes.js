@@ -1,24 +1,33 @@
 import React from "react";
 import {Switch, Route} from "react-router-dom";
 import {RouteTransition} from "react-router-transition";
-import {asyncComponent} from "react-async-loading";
+import Loadable from "react-loadable";
 import LoadingComponent from "../components/Loading";
 import PropTypes from "prop-types";
 
-const HomeRoute = asyncComponent(() => System.import("../components/Home"), {
-	placeholder: <LoadingComponent />
+const HomeRoute = Loadable({
+	loader: () => import("../components/Home"),
+	loading: LoadingComponent
 });
-const ProjectsRoute = asyncComponent(() => System.import("../components/Projects"), {
-	placeholder: <LoadingComponent />
+
+const ProjectsRoute = Loadable({
+	loader: () => import("../components/Projects"),
+	loading: LoadingComponent
 });
-const AboutRoute = asyncComponent(() => System.import("../components/About"), {
-	placeholder: <LoadingComponent />
+
+const AboutRoute = Loadable({
+	loader: () => import("../components/About"),
+	loading: LoadingComponent
 });
-const ContactRoute = asyncComponent(() => System.import("../components/Contact"), {
-	placeholder: <LoadingComponent />
+
+const ContactRoute = Loadable({
+	loader: () => import("../components/Contact"),
+	loading: LoadingComponent
 });
-const PageNotFoundRoute = asyncComponent(() => System.import("../components/PageNotFound"), {
-	placeholder: <LoadingComponent />
+
+const PageNotFoundRoute = Loadable({
+	loader: () => import("../components/PageNotFound"),
+	loading: LoadingComponent
 });
 
 const RoutePath = ({

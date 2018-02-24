@@ -15,7 +15,7 @@ const styles = {
 	image: {
 		margin: "auto",
 		width: "auto",
-		maxHeight: `${window.innerHeight-80}px`
+		maxHeight: `${window.innerHeight - 80}px`
 	},
 	center: {
 		textAlign: "center"
@@ -26,7 +26,7 @@ class Projects extends React.PureComponent {
 		state = {
 			openIndex: 0,
 			showModal: false,
-			greater768: window.innerWidth > 768 ? true : false
+			greater768: window.innerWidth > 768
 		}
 
 		close() {
@@ -43,7 +43,7 @@ class Projects extends React.PureComponent {
 
 		updateDimensions() {
 			this.setState({
-				greater768: window.innerWidth > 768 ? true : false
+				greater768: window.innerWidth > 768
 			});
 		}
 

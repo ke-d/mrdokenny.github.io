@@ -5,7 +5,6 @@ import {
 	Panel,
 	PanelGroup
 } from "react-bootstrap";
-import PropTypes from "prop-types";
 import {
 	PieChart,
 	Pie,

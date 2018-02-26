@@ -39,7 +39,7 @@ class Projects extends React.Component {
 			loadMoreEntries()
 				.then(({ data }) =>
 					this.setState({
-						isFinished: data.user.repositories.edges.length === 0,
+						isFinished: data.user.repositories.edges.length < 9,
 						loadMore: false
 					}));
 		}
@@ -66,7 +66,7 @@ class Projects extends React.Component {
 							const data = [{ name: "Watchers", value: node.watchers.totalCount }, { name: "Favorites", value: node.stargazers.totalCount }, { name: "Forks", value: node.forkCount }];
 							return ([
 								<ProjectContainer key={node.id} projectJSON={ProjectFiles[node.name]} node={node} data={data} pathToImg={pathToImg} />,
-								<Row key={`${node.id}1`} style={{ display: (index + 1) % 3 === 0 ? "block" : "none" }}/>
+								<Row key={`${node.id}1`} style={{ display: (index + 1) % 3 === 0 ? "block" : "none", margin: 0 }}/>
 							]
 							);
 						})

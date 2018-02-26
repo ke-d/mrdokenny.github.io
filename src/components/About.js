@@ -29,7 +29,7 @@ const About = () => (
 
 			<Col xs={12} sm={6}>
 
-				<PanelGroup accordion id="accordion-example">
+				<PanelGroup accordion>
 					<Panel eventKey="1">
 						<Panel.Heading>
 							<Panel.Title toggle>Languages</Panel.Title>

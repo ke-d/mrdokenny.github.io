@@ -1,32 +1,89 @@
 import React from "react";
 import ProjectContainer from "./ProjectContainer";
+import Loading from "./Loading";
 import ProjectFiles from "../projects.json";
 import {
 	Grid,
-	Row,
-	Col,
-	Panel
+	Row
 } from "react-bootstrap";
-import {
-	PieChart,
-	Pie,
-	Tooltip,
-	Legend,
-	ResponsiveContainer,
-	Cell
-} from "recharts";
 import {
 	graphql
 } from "react-apollo";
 import gql from "graphql-tag";
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-// here we create a query opearation
-const MY_QUERY = gql`
-query { 
+const pathToImg = require.context("../img/projects", true);
+
+class Projects extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isFinished: false,
+			loadMore: false
+		};
+		this.handleScroll = this.handleScroll.bind(this);
+	}
+
+	handleScroll() {
+		const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+		const body = document.body;
+		const html = document.documentElement;
+		const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+		const windowBottom = windowHeight + window.pageYOffset + 20;
+
+		const { loading, loadMoreEntries } = this.props;
+		const { isFinished } = this.state;
+		if (windowBottom >= docHeight && !loading && !isFinished) {
+			this.setState({
+				loadMore: true
+			});
+			loadMoreEntries()
+				.then(({ data }) =>
+					this.setState({
+						isFinished: data.user.repositories.edges.length === 0,
+						loadMore: false
+					}));
+		}
+	}
+
+	componentDidMount() {
+		window.addEventListener("scroll", this.handleScroll);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener("scroll", this.handleScroll);
+	}
+
+	render() {
+		const { loading, repositories } = this.props;
+		const { loadMore } = this.state;
+		return (
+			<Grid>
+				<Row>
+					{
+						repositories.map(({
+							node
+						}, index) => {
+							const data = [{ name: "Watchers", value: node.watchers.totalCount }, { name: "Favorites", value: node.stargazers.totalCount }, { name: "Forks", value: node.forkCount }];
+							return ([
+								<ProjectContainer key={node.id} projectJSON={ProjectFiles[node.name]} node={node} data={data} pathToImg={pathToImg} />,
+								<Row key={`${node.id}1`} style={{ display: (index + 1) % 3 === 0 ? "block" : "none" }}/>
+							]
+							);
+						})
+					}
+					{(loading || loadMore) && <Loading />}
+				</Row>
+			</Grid>
+		);
+	}
+}
+
+const initialQuery = gql`
+query Projects($cursor: String) { 
   user(login: "mrdokenny") {
-    repositories (first: 10, isFork: false, orderBy: {field:STARGAZERS, direction: DESC}) {
+    repositories (first: 9, after: $cursor, isFork: false, orderBy: {field:STARGAZERS, direction: DESC}) @connection(key: "repositories") {
       edges {
+				cursor
         node {
           name
           id
@@ -55,97 +112,39 @@ query {
     }
   }
 }`;
-const pathToImg = require.context("../img/projects", true);
 
-const styles = {
-	image: {
-		margin: "auto",
-		width: "auto",
-		maxHeight: `${window.innerHeight - 80}px`
+const ProjectsWithData = graphql(initialQuery, {
+	options: {
+		notifyOnNetworkStatusChange: false
 	},
-	center: {
-		textAlign: "center"
-	},
-	languageMargin: {
-		marginRight: "5px"
-	}
-};
-
-class Projects extends React.Component {
-	state = {
-		height: 0
-	};
-	calcHeight(node) {
-		if (node !== null && this.state.height < node._reactInternalFiber.child.stateNode.clientHeight) {
-			//console.log(node._reactInternalFiber.child.stateNode.clientHeight);
-			this.setState({
-				height: node._reactInternalFiber.child.stateNode.clientHeight + 10
-			});
-		}
-	}
-	render() {
-		if (this.props.data.loading) {
-			return <div>Loading</div>;
-		}
-		const projects = this.props.data.user.repositories.edges;
-		console.log(this.state.height);
-		return (
-			<Grid>
-				<Row>					
-					{
-
-						projects.map(({
-							node
-						}) => {
-							const data = [{name: "Watchers", value: node.watchers.totalCount }, { name: "Favorites", value: node.stargazers.totalCount }, { name: "Forks", value: node.forkCount }];
-							return (
-								<Col onClick={(e) => console.log(e)} style={{minHeight: this.state.height}} ref={(node) => this.calcHeight(node)} key={ node.id } xs={12} sm={4}>
-									<Panel>
-										<Panel.Heading>
-											<Panel.Title componentClass="h3">{`${node.name}${node.description !== null ? `: ${node.description}` : ""}`}</Panel.Title>
-										</Panel.Heading>
-										<Panel.Body>
-											{node.licenseInfo && <p>{node.licenseInfo.name}</p>}
-											<p>{`Languages: ${node.languages.edges.map(({node}) => node.name).join(", ")}`}</p>
-											
-											<ResponsiveContainer width={"100%"} height={300}>
-												<PieChart>
-													<Tooltip />
-													<Legend />
-													<Pie
-														data={data}
-														dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8">
-														{
-															data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)
-														}
-													</Pie>
-												</PieChart>
-											</ResponsiveContainer>
-											<Panel>
-												<Panel.Heading>
-													<Panel.Title toggle>
-														Title that functions as a collapse toggle
-            										</Panel.Title>
-												</Panel.Heading>
-												<Panel.Collapse>
-													<Panel.Body>
-														Anim pariatur cliche reprehenderit, enim eiusmod high life
-														accusamus terry richardson ad squid. Nihil anim keffiyeh
-														helvetica, craft beer labore wes anderson cred nesciunt sapiente
-														ea proident.
-            										</Panel.Body>
-												</Panel.Collapse>
-											</Panel>
-										</Panel.Body>
-									</Panel>
-								</Col>
-							)
-						})
+	props(props) {
+		const { data: { loading, user, fetchMore } } = props;
+		return {
+			loading,
+			repositories: !loading ? user.repositories.edges : [],
+			loadMoreEntries: () =>
+				fetchMore({
+					variables: {
+						cursor: user.repositories.edges[user.repositories.edges.length - 1].cursor
+					},
+					updateQuery: (previousResult, { fetchMoreResult }) => {
+						const oldRepos = previousResult.user.repositories.edges;
+						const newRepos = fetchMoreResult.user.repositories.edges;
+						const combined = [...oldRepos, ...newRepos];
+						// Note to self: This has to be the same JSON structure as the query
+						return {
+							...previousResult,
+							user: {
+								repositories: {
+									edges: combined
+								}
+							}
+						};
 					}
-				</Row>
-			</Grid>
-		);
+				})
+		};
 	}
-}
 
-export default graphql(MY_QUERY)(Projects);
+})(Projects);
+
+export default ProjectsWithData;

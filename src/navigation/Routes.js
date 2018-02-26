@@ -1,6 +1,6 @@
 import React from "react";
-import {Switch, Route} from "react-router-dom";
-import {RouteTransition} from "react-router-transition";
+import { Switch, Route } from "react-router-dom";
+import { RouteTransition } from "react-router-transition";
 import Loadable from "react-loadable";
 import LoadingComponent from "../components/Loading";
 import PropTypes from "prop-types";

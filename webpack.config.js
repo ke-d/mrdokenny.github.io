@@ -8,6 +8,7 @@ let config = {
 			"react",
 			"react-dom",
 			"react-router",
+			"react-apollo",
 			"react-router-dom",
 			"react-loadable",
 			"react-router-transition",
@@ -15,6 +16,9 @@ let config = {
 			"react-social-icons",
 			"react-router-bootstrap",
 			"react-spinner-material",
+			"recharts",
+			"lodash",
+			"graphql",
 			"prop-types"
 		]
 	},

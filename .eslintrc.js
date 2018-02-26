@@ -21,6 +21,7 @@ module.exports = {
     "plugin:react/recommended"
   ],
   "rules": {
+    "react/prop-types": 0,
     "accessor-pairs": [2, {"setWithoutGet": true, "getWithoutSet": false}],
     "array-bracket-spacing": [2, "never"],
     "array-callback-return": 2,
@@ -200,9 +201,11 @@ module.exports = {
     "no-warning-comments": 0, // TODO: Change to `1`?
     "no-whitespace-before-property": 2,
     "no-with": 2,
-    "object-curly-newline": [2, "always"],
-    "object-curly-spacing": [2, "never"],
-    "object-property-newline": [2, {"allowMultiplePropertiesPerLine": true}],
+    "object-curly-newline": [0, {
+      minProperties: 2
+    }],
+    "object-curly-spacing": [2, "always"],
+    "object-property-newline": [2, { "allowMultiplePropertiesPerLine": true }],
     "object-shorthand": [2, "always"],
     "one-var": [2, "never"],
     "one-var-declaration-per-line": [2, "initializations"],

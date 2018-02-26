@@ -4,7 +4,7 @@ import {
 	Row,
 	Col
 } from "react-bootstrap";
-import {SocialIcon} from "react-social-icons";
+import { SocialIcon } from "react-social-icons";
 
 const styles = {
 	center: {

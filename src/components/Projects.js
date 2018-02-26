@@ -11,8 +11,6 @@ import {
 } from "react-apollo";
 import gql from "graphql-tag";
 
-const pathToImg = require.context("../img/projects", true);
-
 class Projects extends React.Component {
 	constructor(props) {
 		super(props);
@@ -65,7 +63,7 @@ class Projects extends React.Component {
 						}, index) => {
 							const data = [{ name: "Watchers", value: node.watchers.totalCount }, { name: "Favorites", value: node.stargazers.totalCount }, { name: "Forks", value: node.forkCount }];
 							return ([
-								<ProjectContainer key={node.id} projectJSON={ProjectFiles[node.name]} node={node} data={data} pathToImg={pathToImg} />,
+								<ProjectContainer key={node.id} projectJSON={ProjectFiles[node.name]} node={node} data={data} />,
 								<Row key={`${node.id}1`} style={{ display: (index + 1) % 3 === 0 ? "block" : "none", margin: 0 }}/>
 							]
 							);

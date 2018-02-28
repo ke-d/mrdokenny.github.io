@@ -79,7 +79,7 @@ class Routes extends React.Component {
 		return (
 			<Alert bsStyle="danger" onDismiss={() => this.handleDismiss()}>
 				<h4>Oh snap! You got an error!</h4>
-				<p>{`The error was ${error.message}. But no worries, with React 16, the whole App doesn't crash and you can just restart this container.`}</p>
+				<p>{`The error was '${error.message}'. But no worries, with React 16, the whole App doesn't crash and you can just restart this container.`}</p>
 				<p>
 					<Button onClick={() => this.handleDismiss()}>Reset Page</Button>
 				</p>

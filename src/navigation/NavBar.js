@@ -21,7 +21,7 @@ const NavBar = () => (
               Projects
 					</NavItem>
 				</LinkContainer>
-				<LinkContainer to="/about">
+				{/* <LinkContainer to="/about">
 					<NavItem eventKey={2}>
               About Me
 					</NavItem>
@@ -30,7 +30,7 @@ const NavBar = () => (
 					<NavItem eventKey={3}>
               Contact
 					</NavItem>
-				</LinkContainer>
+				</LinkContainer> */}
 
 			</Nav>
 		</Navbar.Collapse>

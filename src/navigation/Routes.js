@@ -1,10 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { RouteTransition } from "react-router-transition";
 import Loadable from "react-loadable";
 import LoadingComponent from "../components/Loading";
 import PropTypes from "prop-types";
-
+import { Alert, Button } from "react-bootstrap";
 const HomeRoute = Loadable({
 	loader: () => import("../components/Home"),
 	loading: LoadingComponent
@@ -46,38 +45,47 @@ RoutePath.propTypes = {
 	location: PropTypes.object.isRequired
 };
 
-const Routes = () => {
-	// Enable the route transition if not on mobile
-	if (window.innerWidth >= 768) {
+class Routes extends React.Component {
+	state = {
+		error: "",
+		errorInfo: ""
+	}
+	componentDidCatch(error, errorInfo) {
+		// Catch errors in any components below and re-render with error message
+		this.setState({
+			error,
+			errorInfo
+		});
+		// You can also log error messages to an error reporting service here
+	}
+	// Reset the error variables
+	handleDismiss() {
+		this.setState({
+			error: "",
+			errorInfo: ""
+		});
+	}
+	render() {
+		const { error } = this.state;
+		if (error === "") {
+			return (
+				<Route render={({
+					location, history, match
+				}) => (
+					<RoutePath location={location} />
+				)} />
+			);
+		}
 		return (
-			<Route render={({
-				location, history, match
-			}) => (
-				<RouteTransition
-					pathname={location.pathname}
-					atEnter={{
-						opacity: 0
-					}}
-					atLeave={{
-
-					}}
-					atActive={{
-						opacity: 1
-					}}
-					runOnMount={true}
-				>
-					<RoutePath location={location}/>
-				</RouteTransition>
-			)} />
+			<Alert bsStyle="danger" onDismiss={() => this.handleDismiss()}>
+				<h4>Oh snap! You got an error!</h4>
+				<p>{`The error was ${error.message}. But no worries, with React 16, the whole App doesn't crash and you can just restart this container.`}</p>
+				<p>
+					<Button onClick={() => this.handleDismiss()}>Reset Page</Button>
+				</p>
+			</Alert>
 		);
 	}
-	return (
-		<Route render={({
-			location, history, match
-		}) => (
-			<RoutePath location={location}/>
-		)} />
-	);
-};
+}
 
 export default Routes;

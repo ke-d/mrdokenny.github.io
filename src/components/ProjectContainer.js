@@ -5,16 +5,7 @@ import {
 	Panel,
 	PanelGroup
 } from "react-bootstrap";
-import {
-	PieChart,
-	Pie,
-	Tooltip,
-	Legend,
-	ResponsiveContainer,
-	Cell
-} from "recharts";
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+import ColorfulPieChart from "./ColorfulPieChart";
 
 class ProjectContainer extends React.Component {
 	state = {
@@ -34,19 +25,7 @@ class ProjectContainer extends React.Component {
 						{node.licenseInfo && <p>{node.licenseInfo.name}</p>}
 						<p>{`Languages: ${node.languages.edges.map(({ node }) => node.name).join(", ")}`}</p>
 
-						<ResponsiveContainer width={"100%"} height={250}>
-							<PieChart>
-								<Tooltip />
-								<Legend />
-								<Pie
-									data={data}
-									dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8">
-									{
-										data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)
-									}
-								</Pie>
-							</PieChart>
-						</ResponsiveContainer>
+						<ColorfulPieChart data={data}/>
 
 						<PanelGroup accordion>
 							{

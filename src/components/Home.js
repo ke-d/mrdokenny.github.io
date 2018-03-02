@@ -9,7 +9,7 @@ import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
 import { SocialIcon } from "react-social-icons";
 import BioPic from "../img/cartoon_crop.png";
 import Card from "./Card";
-
+import ColorfulPieChart from "./ColorfulPieChart";
 const styles = {
 	center: {
 		textAlign: "center"
@@ -26,10 +26,10 @@ const styles = {
 };
 
 const bsColors = ["success", "info", "warning", "danger"];
-const maxLevel = 270000;
+const maxLevel = 5000;
 class Home extends React.Component {
 	state = {
-		fetchedObject: { languagesScore: {}, recentCommit: {}, topContributedRepos: [] },
+		fetchedObject: { languagesScore: {}, languagesScoreDiff: {}, recentCommit: {}, topContributedRepos: [] },
 		error: 0,
 		loading: true
 	}
@@ -46,13 +46,13 @@ class Home extends React.Component {
 			.catch((error) => this.setState({ error }));
 	}
 	render() {
-		const { loading, error, fetchedObject: { languagesScore, recentCommit, topContributedRepos } } = this.state;
+		const { loading, error, fetchedObject: { languagesScore, languagesScoreDiff, recentCommit, topContributedRepos } } = this.state;
 		return (
 			<Grid>
 				<Col xs={12} sm={4}>
 					<Thumbnail src={BioPic} alt={"Cartoon Picture of Kenny Do"}>
 						<h3 style={styles.center}>{"Kenny Do"}</h3>
-						<p>{"Why hello there and welcome to my website. All this data was pulled from my express server using the GitHub API. The express server crunches the raw data to get these stats for me."}<i>{" As I am using free servers at this moment, the cards might take a while to load if the server has slept. Please be patient."}</i></p>
+						<p>Why hello there and welcome to my website. All this data was pulled from my express server using the GitHub API. The <a href="https://api.kennydo.com/">express server</a> crunches the raw data to get these stats for me.<i>{" As I am using free servers at this moment, the cards might take a while to load if the server has slept. Please be patient."}</i></p>
 					</Thumbnail>
 					<div style={styles.white}>
 						<dl>
@@ -70,15 +70,19 @@ class Home extends React.Component {
 						<Card
 							loading={loading}
 							error={error}
-							title={"Skills"}
+							title={"Skills Progress"}
 						>
 							{
 								Object.keys(languagesScore).map((key, index) => {
-									const value = (languagesScore[key] / maxLevel) * 100;
+									const diff = (languagesScoreDiff[key] / maxLevel) * 100;
+									const value = ((languagesScore[key] - languagesScoreDiff[key]) / maxLevel) * 100;
 									return (
 										<div key={index + key}>
-											<p>{key}</p>
-											<ProgressBar striped bsStyle={bsColors[index % bsColors.length]} now={value} />
+											<p>{key}<b>{` +${languagesScoreDiff[key]}`}</b></p>
+											<ProgressBar>
+												<ProgressBar striped bsStyle={bsColors[index % bsColors.length]} now={value} />
+												<ProgressBar striped bsStyle={bsColors[index - 1 % bsColors.length]} now={diff} />
+											</ProgressBar>
 										</div>
 									);
 								})
@@ -87,6 +91,25 @@ class Home extends React.Component {
 						</Card>
 
 					</Col>
+					<Col xs={12} sm={6}>
+						<Card
+							loading={loading}
+							error={error}
+							title={"Skills Distribution Chart"}
+						>
+							<ColorfulPieChart data={
+								Object.keys(languagesScore).map((key) => {
+									let newObj = {};
+									newObj.name = key;
+									newObj.value = languagesScore[key];
+									return newObj;
+								})
+							}/>
+
+						</Card>
+
+					</Col>
+
 					<Col xs={12} sm={6}>
 						<Card
 							loading={loading}

@@ -4,7 +4,6 @@ import {
 	Panel
 } from "react-bootstrap";
 class Card extends React.Component {
-
 	render() {
 		const { loading, title, error } = this.props;
 		return (

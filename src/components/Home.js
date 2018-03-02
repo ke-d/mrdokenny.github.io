@@ -34,9 +34,15 @@ class Home extends React.Component {
 		loading: true
 	}
 	componentWillMount() {
-		fetch("https://agile-savannah-64005.herokuapp.com/githubstats")
+		fetch("https://api.kennydo.com/githubstats?user=mrdokenny")
 			.then((response) => response.json())
-			.then((fetchedObject) => this.setState({ fetchedObject, loading: false }))
+			.then((fetchedObject) => {
+				if (fetchedObject.error !== undefined) {
+					this.setState({ error: fetchedObject.error });
+				} else {
+					this.setState({ fetchedObject, loading: false });
+				}
+			})
 			.catch((error) => this.setState({ error }));
 	}
 	render() {

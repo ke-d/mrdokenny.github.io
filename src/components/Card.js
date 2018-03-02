@@ -13,7 +13,7 @@ class Card extends React.Component {
 				</Panel.Heading>
 				<Panel.Body>
 					{
-						loading ? (error !== 0 ? <p>Woops! There was an problem loading this card :(</p> : < Loading />) : this.props.children
+						loading ? (error !== 0 ? <p>Woops! There was an problem loading this card :(</p> : < Loading height={"50px"} />) : this.props.children
 					}
 				</Panel.Body>
 			</Panel>

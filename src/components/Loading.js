@@ -31,10 +31,11 @@ class Loading extends React.Component {
 			window.removeEventListener("resize", this.updateDimensions.bind(this));
 		}
 		render() {
+			const { height } = this.props;
 			return (
 				<div
 					style={{
-						...styles.center, height: `${window.innerHeight - 50}px`
+						...styles.center, height: `${height !== undefined ? height : window.innerHeight - 50}px`
 					}}
 				>
 					<Spinner

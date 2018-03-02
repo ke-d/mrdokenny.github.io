@@ -88,6 +88,7 @@ class Home extends React.Component {
 								})
 							}
 							<i>{"Please don't take this as an accurate representation of my skills but rather take away my 'skill' to data analyse my GitHub Profile :)"}</i>
+							<i>{" Also note that it doesn't take advantage of private repositories."}</i>
 						</Card>
 
 					</Col>

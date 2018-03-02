@@ -52,7 +52,7 @@ class Home extends React.Component {
 				<Col xs={12} sm={4}>
 					<Thumbnail src={BioPic} alt={"Cartoon Picture of Kenny Do"}>
 						<h3 style={styles.center}>{"Kenny Do"}</h3>
-						<p>{"Why hello there and welcome to my website. All this data was pulled by my express server using the GitHub API. The express server crunches the raw data to get these stats for me."}<i>{" As I am using free servers at this moment, the cards might take a while to load if the server has slept. Please be patient."}</i></p>
+						<p>{"Why hello there and welcome to my website. All this data was pulled from my express server using the GitHub API. The express server crunches the raw data to get these stats for me."}<i>{" As I am using free servers at this moment, the cards might take a while to load if the server has slept. Please be patient."}</i></p>
 					</Thumbnail>
 					<div style={styles.white}>
 						<dl>

@@ -10,6 +10,7 @@ import { SocialIcon } from "react-social-icons";
 import BioPic from "../img/cartoon_crop.png";
 import Card from "./Card";
 import ColorfulPieChart from "./ColorfulPieChart";
+import Feedback from "./Feedback";
 const styles = {
 	center: {
 		textAlign: "center"
@@ -22,6 +23,9 @@ const styles = {
 	},
 	icons: {
 		marginRight: "5px"
+	},
+	socialIcons: {
+		marginTop: "5px"
 	}
 };
 
@@ -45,6 +49,7 @@ class Home extends React.Component {
 			})
 			.catch((error) => this.setState({ error }));
 	}
+
 	render() {
 		const { loading, error, fetchedObject: { languagesScore, languagesScoreDiff, recentCommit, topContributedRepos } } = this.state;
 		return (
@@ -57,11 +62,14 @@ class Home extends React.Component {
 					<div style={styles.white}>
 						<dl>
 							<dt>Impressed? Get in touch</dt>
-							<dd><a href="mailto:contact@kennydo.com" title="Click to send me an email">contact@kennydo.com</a></dd>
+							<dd><a href="mailto:contact@kennydo.com" title="Click to send me an email">contact@kennydo.com</a><br/></dd>
 						</dl>
-						<SocialIcon style={styles.icons} url="mailto:contact@kennydo.com" network="email" title="Click to send me an email" />
-						<SocialIcon style={styles.icons} url="https://github.com/mrdokenny" title="Come see my projects" />
-						<SocialIcon style={styles.icons} url="https://www.linkedin.com/in/dokenny" title="Come to my Linkedin" />
+						<Feedback />
+						<div style={styles.socialIcons}>
+							<SocialIcon style={styles.icons} url="mailto:contact@kennydo.com" network="email" title="Click to send me an email" />
+							<SocialIcon style={styles.icons} url="https://github.com/mrdokenny" title="Come see my projects" />
+							<SocialIcon style={styles.icons} url="https://www.linkedin.com/in/dokenny" title="Come to my Linkedin" />
+						</div>
 					</div>
 
 				</Col>

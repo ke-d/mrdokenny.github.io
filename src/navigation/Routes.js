@@ -29,6 +29,11 @@ const PageNotFoundRoute = Loadable({
 	loading: LoadingComponent
 });
 
+const RedirectRoute = Loadable({
+	loader: () => import("../components/Redirect"),
+	loading: LoadingComponent
+});
+
 const RoutePath = ({
 	location
 }) => (
@@ -37,6 +42,7 @@ const RoutePath = ({
 		<Route exact path="/projects" component={ProjectsRoute} />
 		<Route exact path="/about" component={AboutRoute} />
 		<Route exact path="/contact" component={ContactRoute} />
+		<Route exact path="/redirect" component={RedirectRoute} />
 		<Route component={PageNotFoundRoute} />
 	</Switch>
 );

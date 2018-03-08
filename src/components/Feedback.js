@@ -11,7 +11,7 @@ class Feedback extends React.Component {
 
     onSubmitButton() {
     	if (this.state.text.value.length > 0) {
-    		fetch("http://localhost:5000/feedback", {
+    		fetch("https://api.kennydo.com/feedback", {
     			method: "POST",
     			headers: {
     				"Accept": "application/json",

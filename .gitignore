@@ -9,3 +9,4 @@ env.json
 # Files marked with gitigx
 *gitigx*
 report.html
+.env

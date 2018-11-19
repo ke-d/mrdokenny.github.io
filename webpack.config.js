@@ -35,7 +35,16 @@ let config = {
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: "babel-loader"
+						loader: "source-map-loader"
+					}
+				]
+			},
+			{
+				test: /\.tsx?$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: "awesome-typescript-loader"
 					}
 				]
 			},
@@ -50,33 +59,33 @@ let config = {
 			}
 
 		]
-	},
+	}
 
-	plugins: [
-		new webpack.DefinePlugin({ // <-- key to reducing React"s size
-			"process.env": {
-				"NODE_ENV": JSON.stringify("production")
-			}
-		}),
-		new webpack.optimize.UglifyJsPlugin({
-			parallel: true
-		}), // minify everything
-		new webpack.optimize.CommonsChunkPlugin({
-			children: true,
-			async: true
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "vendor",
-			chunks: ["app"],
-			filename: "vendor.js"
-		}),
-		new webpack.optimize.MinChunkSizePlugin({
-			minChunkSize: 100000 // Minimum number of characters
-		}),
-		new BundleAnalyzerPlugin({
-			analyzerMode: "static"
-		})
-	]
+// 	plugins: [
+// 		new webpack.DefinePlugin({ // <-- key to reducing React"s size
+// 			"process.env": {
+// 				"NODE_ENV": JSON.stringify("production")
+// 			}
+// 		}),
+// 		new webpack.optimize.UglifyJsPlugin({
+// 			parallel: true
+// 		}), // minify everything
+// 		new webpack.optimize.CommonsChunkPlugin({
+// 			children: true,
+// 			async: true
+// 		}),
+// 		new webpack.optimize.CommonsChunkPlugin({
+// 			name: "vendor",
+// 			chunks: ["app"],
+// 			filename: "vendor.js"
+// 		}),
+// 		new webpack.optimize.MinChunkSizePlugin({
+// 			minChunkSize: 100000 // Minimum number of characters
+// 		}),
+// 		new BundleAnalyzerPlugin({
+// 			analyzerMode: "static"
+// 		})
+// 	]
 };
 
 // Compress image if production build

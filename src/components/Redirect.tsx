@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Jumbotron, Button, Grid } from "react-bootstrap";
 import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
 

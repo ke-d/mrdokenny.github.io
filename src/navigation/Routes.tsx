@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import { Switch, Route } from "react-router-dom";
-import Loadable from "react-loadable";
+import * as Loadable from "react-loadable";
 import LoadingComponent from "../components/Loading";
-import PropTypes from "prop-types";
+import * as PropTypes from "prop-types";
 import { Alert, Button } from "react-bootstrap";
 const HomeRoute = Loadable({
 	loader: () => import("../components/Home"),
@@ -36,7 +36,7 @@ const RedirectRoute = Loadable({
 
 const RoutePath = ({
 	location
-}) => (
+}: any) => (
 	<Switch key={location.key} location={location}>
 		<Route exact path="/" component={HomeRoute} />
 		<Route exact path="/projects" component={ProjectsRoute} />
@@ -53,27 +53,27 @@ RoutePath.propTypes = {
 
 class Routes extends React.Component {
 	state = {
-		error: "",
-		errorInfo: ""
+		error: new Error(),
+		hadError: false,
 	}
-	componentDidCatch(error, errorInfo) {
+	componentDidCatch(error: Error) {
 		// Catch errors in any components below and re-render with error message
 		this.setState({
 			error,
-			errorInfo
+			hadError: true
 		});
 		// You can also log error messages to an error reporting service here
 	}
 	// Reset the error variables
 	handleDismiss() {
 		this.setState({
-			error: "",
-			errorInfo: ""
+			error: new Error(),
+			hadError: false,
 		});
 	}
 	render() {
-		const { error } = this.state;
-		if (error === "") {
+		const { error, hadError } = this.state;
+		if (!hadError) {
 			return (
 				<Route render={({
 					location, history, match

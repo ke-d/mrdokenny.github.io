@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { FormGroup, Checkbox, FormControl, Button } from "react-bootstrap";
 
 class Feedback extends React.Component {
@@ -47,9 +47,9 @@ class Feedback extends React.Component {
                     } */}
     					<textarea value={this.state.text.value} onChange={(e) => this.setState({ text: { value: e.target.value, validation: e.target.value === "" ? "error" : "success" } })} className="form-control"></textarea>
     				</FormGroup>
-					<div style={{ display: "none" }}>
+    				<div style={{ display: "none" }}>
     					<label>Keep this field blank</label>
-						<input value={this.state.honeyPot.value} onChange={(e) => this.setState({ honeyPot: e.target.value })} type="text" />
+    					<input value={this.state.honeyPot.value} onChange={(e) => this.setState({ honeyPot: e.target.value })} type="text" />
     				</div>
     				<Button style={{ marginTop: "7px", float: "right" }} type="submit">Submit</Button>
 

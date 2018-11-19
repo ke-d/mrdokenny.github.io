@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Spinner from "react-spinner-material";
 const offset = 50;
 

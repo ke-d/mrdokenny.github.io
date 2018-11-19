@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ProjectContainer from "./ProjectContainer";
 import Loading from "./Loading";
 import ProjectFiles from "../projects.json";

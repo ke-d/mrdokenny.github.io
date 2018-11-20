@@ -6,6 +6,7 @@ interface ProjectContainerProps {
   node: any;
   data: object[];
   projectJSON?: any;
+  repositoriesLength: number;
 }
 
 class ProjectContainer extends React.Component<ProjectContainerProps> {
@@ -14,11 +15,19 @@ class ProjectContainer extends React.Component<ProjectContainerProps> {
   };
 
   public render() {
-    const { node, data, projectJSON } = this.props;
+    const { node, data, projectJSON, repositoriesLength } = this.props;
     const languages = `Languages: ${node.languages.edges
       // tslint:disable-next-line:no-shadowed-variable
       .map(({ node }: any) => node.name)
       .join(', ')}`;
+    const allNotZeros = data.reduce(
+      (allValuesGreaterThanZero, element: any) => {
+        if (element.value > 0) {
+          return true;
+        }
+        return allValuesGreaterThanZero;
+      },
+      false);
     return (
       <Col key={node.id} xs={12} md={4}>
         <Panel>
@@ -31,9 +40,9 @@ class ProjectContainer extends React.Component<ProjectContainerProps> {
             {node.licenseInfo && <p>{node.licenseInfo.name}</p>}
             <p>{languages}</p>
 
-            <ColorfulPieChart data={data} />
+            <ColorfulPieChart data={allNotZeros ? data : [{ name: 'None', value: 1 }]} animate={repositoriesLength < 10}/>
 
-            <PanelGroup accordion>
+            <PanelGroup id={node.id} accordion>
               {projectJSON !== undefined && (
                 <Panel eventKey="1">
                   <Panel.Heading>

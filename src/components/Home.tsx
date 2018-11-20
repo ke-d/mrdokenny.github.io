@@ -221,7 +221,7 @@ const HomeWithData = () => (
                   {topContributedRepos.map(({ node }: any, index: number) => {
                     if (index < 5) {
                       return (
-                        <p>
+                        <p key={`${node.name}${index}`}>
                           <a href={node.url}>{node.name}</a>
                           {` has ${
                             node.defaultBranchRef.target.history.totalCount

@@ -8,8 +8,9 @@ import {
   Tooltip,
 } from 'recharts';
 
-export interface IProps {
-  data: object[];
+class ColorfulPieChartProps {
+  public data: object[];
+  public animate?: boolean = true;
 }
 
 const COLORS = [
@@ -25,7 +26,7 @@ const COLORS = [
   '#8bc34a',
 ];
 
-const ColorfulPieChart = ({ data }: IProps) => (
+const ColorfulPieChart = ({ data, animate }: ColorfulPieChartProps) => (
   <ResponsiveContainer width={'100%'} height={250}>
     <PieChart>
       <Tooltip />
@@ -38,9 +39,11 @@ const ColorfulPieChart = ({ data }: IProps) => (
         cy="50%"
         outerRadius={50}
         fill="#8884d8"
+        label={data.length > 1}
+        isAnimationActive={animate}
       >
         {data.map((entry, index: number) => (
-          <Cell key={index} fill={COLORS[index % COLORS.length]} />
+          <Cell key={index} fill={data.length > 1 ? COLORS[index % COLORS.length] : COLORS[5]} />
         ))}
       </Pie>
     </PieChart>

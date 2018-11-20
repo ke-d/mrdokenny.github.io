@@ -75,6 +75,7 @@ class Projects extends React.Component<ProjectsProps> {
           projectJSON={projectsJson[node.name]}
           node={node}
           data={data}
+          repositoriesLength={repositories.length}
         />,
         <Row
           key={`${node.id}1`}

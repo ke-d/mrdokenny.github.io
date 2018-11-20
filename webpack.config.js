@@ -3,30 +3,17 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 const isProd = (process.env.NODE_ENV === "production");
 let config = {
 	entry: {
-		app: `${__dirname}/src/index.js`,
-		vendor: [
-			"react",
-			"react-dom",
-			"react-router",
-			"react-apollo",
-			"react-router-dom",
-			"react-loadable",
-			"react-router-transition",
-			"react-bootstrap",
-			"react-social-icons",
-			"react-router-bootstrap",
-			"react-spinner-material",
-			"recharts",
-			"lodash",
-			"graphql",
-			"prop-types"
-		]
+		app: `${__dirname}/src/index.tsx`
 	},
 	output: {
 		path: `${__dirname}/build`,
 		publicPath: "/build/",
 		filename: "bundle.js"
-	},
+  },
+
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.json']
+  },
 
 	module: {
 		rules: [
@@ -44,16 +31,7 @@ let config = {
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: "awesome-typescript-loader"
-					}
-				]
-			},
-			{
-				test: /\.json$/,
-				exclude: /node_modules/,
-				use: [
-					{
-						loader: "json-loader"
+            loader: "ts-loader"
 					}
 				]
 			}

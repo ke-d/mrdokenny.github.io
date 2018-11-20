@@ -1,52 +1,58 @@
-import * as React from "react";
-import Spinner from "react-spinner-material";
+import * as React from 'react';
+// tslint:disable-next-line:import-name
+import Spinner from 'react-spinner-material';
 const offset = 50;
 
 const styles = {
-	center: {
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center"
-	}
+  center: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+  },
 };
 
-class Loading extends React.Component {
-		state = {
-			height: window.innerHeight - offset
-		}
+interface LoadingProps {
+  height?: number;
+}
 
-		updateDimensions() {
-			let newHeight = window.innerHeight - offset;
-			this.setState({
-				height: newHeight
-			});
-		}
+class Loading extends React.Component<LoadingProps> {
+  public state = {
+    height: window.innerHeight - offset,
+  };
 
-		componentDidMount() {
-			this.updateDimensions();
-			window.addEventListener("resize", this.updateDimensions.bind(this));
-		}
+  public updateDimensions() {
+    const newHeight = window.innerHeight - offset;
+    this.setState({
+      height: newHeight,
+    });
+  }
 
-		componentWillUnmount() {
-			window.removeEventListener("resize", this.updateDimensions.bind(this));
-		}
-		render() {
-			const { height } = this.props;
-			return (
-				<div
-					style={{
-						...styles.center, height: `${height !== undefined ? height : window.innerHeight - 50}px`
-					}}
-				>
-					<Spinner
-						size={120}
-						spinnerColor={"#333"}
-						spinnerWidth={5}
-						visible={true}
-					/>
-				</div>
-			);
-		}
+  public componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener('resize', this.updateDimensions.bind(this));
+  }
+
+  public componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this));
+  }
+  public render() {
+    const { height } = this.props;
+    return (
+      <div
+        style={{
+          ...styles.center,
+          height: `${height !== undefined ? height : window.innerHeight - 50}px`,
+        }}
+      >
+        <Spinner
+          size={120}
+          spinnerColor={'#333'}
+          spinnerWidth={5}
+          visible={true}
+        />
+      </div>
+    );
+  }
 }
 
 export default Loading;

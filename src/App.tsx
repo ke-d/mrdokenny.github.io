@@ -3,7 +3,7 @@ import * as React from 'react';
 import NavBar from './navigation/NavBar';
 import Routes from './navigation/Routes';
 
-const app = () => (
+const App = () => (
   <div>
     <NavBar/>
     <div id="routeContainer">
@@ -12,4 +12,4 @@ const app = () => (
   </div>
 );
 
-export default app;
+export default App;

@@ -2,8 +2,7 @@
   "defaultSeverity": "error",
   "extends": [
     "tslint:recommended",
-    "tslint-config-airbnb",
-    "tslint-react"
+    "tslint-config-airbnb"
   ],
   "linterOptions": {
     "exclude": [
@@ -21,6 +20,14 @@
         "ignore-pattern": "'.*'"
       }
     ],
-    "object-shorthand-properties-first": false
+    "object-shorthand-properties-first": false,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "interface-name": false,
+    "max-classes-per-file": false
   }
 }

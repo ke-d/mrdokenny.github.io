@@ -11,7 +11,7 @@ import {
 import App from './App';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
+  uri: 'https://api.kennydo.com/graphql',
 });
 
 ReactDOM.render(

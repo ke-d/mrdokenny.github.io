@@ -1,14 +1,11 @@
-const webpack = require("webpack");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const isProd = (process.env.NODE_ENV === "production");
+
 let config = {
-	entry: {
-		app: `${__dirname}/src/index.tsx`
-	},
+  entry: `${__dirname}/src/index.tsx`,
 	output: {
 		path: `${__dirname}/build`,
 		publicPath: "/build/",
-		filename: "bundle.js"
+    filename: "[name].bundle.js"
   },
 
   resolve: {
@@ -37,66 +34,50 @@ let config = {
 			}
 
 		]
-	}
+  },
 
-// 	plugins: [
-// 		new webpack.DefinePlugin({ // <-- key to reducing React"s size
-// 			"process.env": {
-// 				"NODE_ENV": JSON.stringify("production")
-// 			}
-// 		}),
-// 		new webpack.optimize.UglifyJsPlugin({
-// 			parallel: true
-// 		}), // minify everything
-// 		new webpack.optimize.CommonsChunkPlugin({
-// 			children: true,
-// 			async: true
-// 		}),
-// 		new webpack.optimize.CommonsChunkPlugin({
-// 			name: "vendor",
-// 			chunks: ["app"],
-// 			filename: "vendor.js"
-// 		}),
-// 		new webpack.optimize.MinChunkSizePlugin({
-// 			minChunkSize: 100000 // Minimum number of characters
-// 		}),
-// 		new BundleAnalyzerPlugin({
-// 			analyzerMode: "static"
-// 		})
-// 	]
+  plugins: []
 };
 
-// Compress image if production build
-if (isProd) {
-	config.module.rules.push({
-		test: /\.(gif|png|jpe?g|svg)$/i,
-		exclude: /node_modules/,
-		use: [
-			{
-				loader: "file-loader?hash=sha512&digest=hex&name=[hash].[ext]"
-			},
-			{
-				loader: "img-loader",
-				options: {
-					optipng: false, // disabled
-					pngquant: true,
-					gifsicle: {
-						optimizationLevel: 3
-					}
-				}
-			}
-		]
-	});
-} else {
-	config.module.rules.push({
-		test: /\.(gif|png|jpe?g|svg)$/i,
-		exclude: /node_modules/,
-		use: [
-			{
-				loader: "file-loader?hash=sha512&digest=hex&name=[hash].[ext]"
-			}
-		]
-	});
-}
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.module.rules.push({
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: "file-loader?hash=sha512&digest=hex&name=[hash].[ext]"
+        }
+      ]
+    });
+  }
+  
 
-module.exports = config;
+  if (argv.mode === 'production') {
+    config.module.rules.push({
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: "file-loader?hash=sha512&digest=hex&name=[hash].[ext]"
+        },
+        {
+          loader: "img-loader",
+          options: {
+            optipng: false, // disabled
+            pngquant: true,
+            gifsicle: {
+              optimizationLevel: 3
+            }
+          }
+        }
+      ]
+    });
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: "static"
+      })
+    );
+  }
+  return config;
+};

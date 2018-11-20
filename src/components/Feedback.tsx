@@ -1,9 +1,9 @@
-import graphqlTag from 'graphql-tag';
+import { gql } from 'apollo-boost';
 import * as React from 'react';
 import { Mutation } from 'react-apollo';
 import { Button, Checkbox, FormControl, FormGroup } from 'react-bootstrap';
 
-const ADD_FEEDBACK = graphqlTag`
+const ADD_FEEDBACK = gql`
   mutation AddFeedBack ($text: String!){
     createFeedBack(text: $text)
   }

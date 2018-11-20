@@ -1,10 +1,10 @@
-import graphqlTag from 'graphql-tag';
+import { gql } from 'apollo-boost';
 import * as React from 'react';
 import { Query } from 'react-apollo';
 import { Col, Grid, ProgressBar, Thumbnail } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { SocialIcon } from 'react-social-icons';
-import cartoon_cropPng from '../img/cartoon_crop.png';
+import * as cartoon_cropPng from '../img/cartoon_crop.png';
 import Card from './Card';
 import ColorfulPieChart from './ColorfulPieChart';
 import Feedback from './Feedback';
@@ -55,7 +55,7 @@ class HomeProps {
   };
 }
 
-const getProfile = graphqlTag`
+const getProfile = gql`
 query getProfile {
   user(username: "mrdokenny") {
     recentCommit {

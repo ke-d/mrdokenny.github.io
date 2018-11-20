@@ -12,7 +12,7 @@ let config = {
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.mjs', '.tsx', '.ts', '.js', '.json', '.png']
   },
 
 	module: {

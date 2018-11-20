@@ -1,12 +1,5 @@
-import {
-  InMemoryCache,
-} from 'apollo-cache-inmemory';
-import {
-  ApolloClient,
-} from 'apollo-client';
-import {
-  HttpLink,
-} from 'apollo-link-http';
+// tslint:disable-next-line:import-name
+import ApolloClient from 'apollo-boost';
 import * as React from 'react';
 import {
   ApolloProvider,
@@ -18,10 +11,7 @@ import {
 import App from './App';
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: 'http://localhost:5000/graphql',
-  }),
+  uri: 'http://localhost:5000/graphql',
 });
 
 ReactDOM.render(

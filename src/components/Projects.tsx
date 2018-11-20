@@ -1,8 +1,8 @@
-import graphqlTag from 'graphql-tag';
+import { gql } from 'apollo-boost';
 import * as React from 'react';
 import { graphql } from 'react-apollo';
 import { Grid, Row } from 'react-bootstrap';
-// import projectsJson from '../projects.json';
+import * as projectsJson from '../projects.json';
 import Loading from './Loading';
 import ProjectContainer from './ProjectContainer';
 
@@ -72,7 +72,7 @@ class Projects extends React.Component<ProjectsProps> {
       return [
         <ProjectContainer
           key={node.id}
-          // projectJSON={projectsJson[node.name]}
+          projectJSON={projectsJson[node.name]}
           node={node}
           data={data}
         />,
@@ -96,7 +96,7 @@ class Projects extends React.Component<ProjectsProps> {
   }
 }
 
-const initialQuery = graphqlTag`
+const initialQuery = gql`
   query Projects($cursor: String) {
     user(username: "mrdokenny") {
       repositories(cursor: $cursor)

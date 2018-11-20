@@ -16,7 +16,7 @@
   "author": "Kenny Do",
   "license": "MIT",
   "dependencies": {
-    "apollo-boost": "^0.1.1",
+    "apollo-boost": "^0.1.21",
     "graphql": "^14.0.2",
     "react": "^16.2.0",
     "react-apollo": "^2.3.1",
@@ -47,7 +47,6 @@
     "tslint-config-airbnb": "^5.11.1",
     "tslint-react": "^3.6.0",
     "typescript": "^3.1.6",
-    "url-loader": "^1.1.2",
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",

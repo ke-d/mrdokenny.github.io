@@ -4,7 +4,7 @@ import Loading from './Loading';
 
 interface CardProp {
   loading: boolean;
-  error: number;
+  error?: Error;
   title: string;
 }
 class Card extends React.Component<CardProp> {
@@ -17,7 +17,7 @@ class Card extends React.Component<CardProp> {
         </Panel.Heading>
         <Panel.Body>
           {loading ? (
-            error !== 0 ? (
+            error ? (
               <p>Woops! There was an problem loading this card :(</p>
             ) : (
                 <Loading height={50} />

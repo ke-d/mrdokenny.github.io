@@ -5,7 +5,7 @@ import ColorfulPieChart from './ColorfulPieChart';
 interface ProjectContainerProps {
   node: any;
   data: object[];
-  projectJSON: any;
+  projectJSON?: any;
 }
 
 class ProjectContainer extends React.Component<ProjectContainerProps> {

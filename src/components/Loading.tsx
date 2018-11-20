@@ -41,11 +41,11 @@ class Loading extends React.Component<LoadingProps> {
       <div
         style={{
           ...styles.center,
-          height: `${height !== undefined ? height : window.innerHeight - 50}px`,
+          height: `${height ? height : window.innerHeight - 50}px`,
         }}
       >
         <Spinner
-          size={120}
+          size={height ? height : 120}
           spinnerColor={'#333'}
           spinnerWidth={5}
           visible={true}

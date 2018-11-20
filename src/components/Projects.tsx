@@ -2,7 +2,7 @@ import graphqlTag from 'graphql-tag';
 import * as React from 'react';
 import { graphql } from 'react-apollo';
 import { Grid, Row } from 'react-bootstrap';
-import projectsJson from '../projects.json';
+// import projectsJson from '../projects.json';
 import Loading from './Loading';
 import ProjectContainer from './ProjectContainer';
 
@@ -45,7 +45,7 @@ class Projects extends React.Component<ProjectsProps> {
       });
       loadMoreEntries().then(({ data }) =>
         this.setState({
-          isFinished: data.user.repositories.edges.length < 9,
+          isFinished: data.user.repositories.length < 9,
           loadMore: false,
         }),
       );
@@ -72,7 +72,7 @@ class Projects extends React.Component<ProjectsProps> {
       return [
         <ProjectContainer
           key={node.id}
-          projectJSON={projectsJson[node.name]}
+          // projectJSON={projectsJson[node.name]}
           node={node}
           data={data}
         />,
@@ -88,7 +88,7 @@ class Projects extends React.Component<ProjectsProps> {
     return (
       <Grid>
         <Row>
-          {}
+          {projectJSX}
           {(loading || loadMore) && <Loading />}
         </Row>
       </Grid>
@@ -98,41 +98,8 @@ class Projects extends React.Component<ProjectsProps> {
 
 const initialQuery = graphqlTag`
   query Projects($cursor: String) {
-    user(login: "mrdokenny") {
-      repositories(
-        first: 9
-        after: $cursor
-        isFork: false
-        orderBy: { field: STARGAZERS, direction: DESC }
-      ) @connection(key: "repositories") {
-        edges {
-          cursor
-          node {
-            name
-            id
-            description
-            url
-            licenseInfo {
-              name
-            }
-            languages(first: 3) {
-              edges {
-                node {
-                  id
-                  name
-                }
-              }
-            }
-            watchers {
-              totalCount
-            }
-            stargazers {
-              totalCount
-            }
-            forkCount
-          }
-        }
-      }
+    user(username: "mrdokenny") {
+      repositories(cursor: $cursor)
     }
   }
 `;
@@ -149,26 +116,24 @@ const ProjectsWithData = graphql(initialQuery, {
       loadMoreEntries: () =>
         fetchMore({
           updateQuery: (previousResult: any, { fetchMoreResult }: any) => {
-            const oldRepos = previousResult.user.repositories.edges;
-            const newRepos = fetchMoreResult.user.repositories.edges;
+            const oldRepos = previousResult.user.repositories;
+            const newRepos = fetchMoreResult.user.repositories;
             const combined = [...oldRepos, ...newRepos];
             // Note to self: This has to be the same JSON structure as the query
             return {
-              ...previousResult,
               user: {
-                repositories: {
-                  edges: combined,
-                },
+                ...previousResult.user,
+                repositories: combined,
               },
             };
           },
           variables: {
             cursor:
-              user.repositories.edges[user.repositories.edges.length - 1].cursor,
+              user.repositories[user.repositories.length - 1].cursor,
           },
         }),
       loading,
-      repositories: !loading ? user.repositories.edges : [],
+      repositories: !loading ? user.repositories : [],
     };
   },
 })(Projects);

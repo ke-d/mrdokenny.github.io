@@ -90,7 +90,9 @@ class Projects extends React.Component<ProjectsProps> {
       <Grid>
         <Row>
           {projectJSX}
-          {loadMore && <Loading />}
+        </Row>
+        <Row>
+          {(loading || loadMore) && <Loading />}
         </Row>
       </Grid>
     );

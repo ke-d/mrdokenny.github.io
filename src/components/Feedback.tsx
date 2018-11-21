@@ -39,7 +39,7 @@ class Feedback extends React.Component {
                 action="/redirect"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  addFeedback({ variables: { text: this.state.text } });
+                  addFeedback({ variables: { text: this.state.text.value } });
                   this.setState({ submitted: true });
                 }}
               >

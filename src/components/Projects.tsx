@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 import * as React from 'react';
 import { graphql } from 'react-apollo';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import * as projectsJson from '../projects.json';
 import Loading from './Loading';
 import ProjectContainer from './ProjectContainer';

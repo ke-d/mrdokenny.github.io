@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { SocialIcon } from 'react-social-icons';
 
 const styles = {
@@ -17,7 +17,7 @@ const styles = {
 };
 
 const Contact = () => (
-  <Grid>
+  <Container>
     <Row>
       <Col xs={12} sm={8}>
         <div style={styles.white}>
@@ -55,15 +55,10 @@ const Contact = () => (
             url="https://github.com/mrdokenny"
             title="Come see my projects"
           />
-          <SocialIcon
-            style={styles.icons}
-            url="https://www.linkedin.com/in/dokenny"
-            title="Come to my Linkedin"
-          />
         </div>
       </Col>
     </Row>
-  </Grid>
+  </Container>
 );
 
 export default Contact;

@@ -5,9 +5,9 @@ import Routes from './navigation/Routes';
 
 const App = () => (
   <div>
-    <NavBar/>
+    <NavBar />
     <div id="routeContainer">
-    <Routes/>
+      <Routes />
     </div>
   </div>
 );

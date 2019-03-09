@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 import * as React from 'react';
 import { graphql } from 'react-apollo';
-import { Grid, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import * as projectsJson from '../projects.json';
 import Loading from './Loading';
 import ProjectContainer from './ProjectContainer';
@@ -22,14 +22,16 @@ class Projects extends React.Component<ProjectsProps> {
   }
 
   public handleScroll() {
-    const documentOffsetHeight = document.documentElement ? document.documentElement.offsetHeight : 0;
+    const documentOffsetHeight = document.documentElement
+      ? document.documentElement.offsetHeight
+      : 0;
     const windowHeight =
-      'innerHeight' in window
-        ? window.innerHeight
-        : documentOffsetHeight;
+      'innerHeight' in window ? window.innerHeight : documentOffsetHeight;
     const body = document.body;
     const html = document.documentElement;
-    const htmlHeight = html ? Math.max(html.clientHeight, html.scrollHeight, html.offsetHeight) : 0;
+    const htmlHeight = html
+      ? Math.max(html.clientHeight, html.scrollHeight, html.offsetHeight)
+      : 0;
     const docHeight = Math.max(
       body.scrollHeight,
       body.offsetHeight,
@@ -87,21 +89,19 @@ class Projects extends React.Component<ProjectsProps> {
       ];
     });
     return (
-      <Grid>
+      <Container>
+        <Row>{projectJSX}</Row>
         <Row>
-          {projectJSX}
+          <Col>{(loading || loadMore) && <Loading />}</Col>
         </Row>
-        <Row>
-          {(loading || loadMore) && <Loading />}
-        </Row>
-      </Grid>
+      </Container>
     );
   }
 }
 
 const initialQuery = gql`
   query Projects($cursor: String) {
-    user(username: "mrdokenny") {
+    user: queryUser(username: "mrdokenny") {
       repositories(cursor: $cursor)
     }
   }
@@ -131,8 +131,7 @@ const ProjectsWithData = graphql(initialQuery, {
             };
           },
           variables: {
-            cursor:
-              user.repositories[user.repositories.length - 1].cursor,
+            cursor: user.repositories[user.repositories.length - 1].cursor,
           },
         }),
       loading,

@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 import * as React from 'react';
 import { Mutation } from 'react-apollo';
-import { Button, Checkbox, FormControl, FormGroup } from 'react-bootstrap';
+import { Button, FormGroup } from 'react-bootstrap';
 
 const ADD_FEEDBACK = gql`
   mutation AddFeedBack ($text: String!){
@@ -45,7 +45,6 @@ class Feedback extends React.Component {
               >
                 <FormGroup
                   controlId="text"
-                  validationState={this.state.text.validation}
                 >
                   {/* <Checkbox onChange={(e) => this.setState({ isAnon: e.target.checked, email: "" })}>
                           Anonymous

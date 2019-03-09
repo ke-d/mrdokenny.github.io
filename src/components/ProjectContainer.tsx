@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Col, Image, Panel, PanelGroup } from 'react-bootstrap';
+import { Card, Col, Image } from 'react-bootstrap';
 import ColorfulPieChart from './ColorfulPieChart';
 
 interface ProjectContainerProps {
@@ -27,55 +27,58 @@ class ProjectContainer extends React.Component<ProjectContainerProps> {
         }
         return allValuesGreaterThanZero;
       },
-      false);
+      false,
+    );
     return (
       <Col key={node.id} xs={12} md={4}>
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">{`${node.name}${
+        <Card>
+          <Card.Header>
+            {`${node.name}${
               node.description !== null ? `: ${node.description}` : ''
-              }`}</Panel.Title>
-          </Panel.Heading>
-          <Panel.Body>
+            }`}
+          </Card.Header>
+          <Card.Body>
             {node.licenseInfo && <p>{node.licenseInfo.name}</p>}
             <p>{languages}</p>
 
-            <ColorfulPieChart data={allNotZeros ? data : [{ name: 'None', value: 1 }]} animate={repositoriesLength < 10}/>
+            <ColorfulPieChart
+              data={allNotZeros ? data : [{ name: 'None', value: 1 }]}
+              animate={repositoriesLength < 10}
+            />
 
-            <PanelGroup id={node.id} accordion>
+            {/* <PanelGroup id={node.id} accordion>
               {projectJSON !== undefined && (
-                <Panel eventKey="1">
-                  <Panel.Heading>
-                    <Panel.Title toggle>Description</Panel.Title>
-                  </Panel.Heading>
-                  <Panel.Body collapsible>
+                <Card eventKey="1">
+                  <Card.Header>
+                    <Card.Title toggle>Description</Card.Title>
+                  </Card.Header>
+                  <Card.Body collapsible>
                     <p>{projectJSON.description}</p>
-                  </Panel.Body>
-                </Panel>
+                  </Card.Body>
+                </Card>
               )}
               {projectJSON !== undefined && (
-                <Panel eventKey="2">
-                  <Panel.Heading
+                <Card eventKey="2">
+                  <Card.Header
                     onClick={() => this.setState({ loadImage: true })}
                   >
-                    <Panel.Title toggle>Images</Panel.Title>
-                  </Panel.Heading>
-                  <Panel.Body collapsible>
+                    <Card.Title toggle>Images</Card.Title>
+                  </Card.Header>
+                  <Card.Body collapsible>
                     {// Lazy load images
                       this.state.loadImage && (
                         <Image
                           src={require(`../img/projects/${projectJSON.src}`)}
-                          responsive
                         />
                       )}
-                  </Panel.Body>
-                </Panel>
+                  </Card.Body>
+                </Card>
               )}
-              <Panel eventKey="3">
-                <Panel.Heading>
-                  <Panel.Title toggle>External Links</Panel.Title>
-                </Panel.Heading>
-                <Panel.Body collapsible>
+              <Card eventKey="3">
+                <Card.Header>
+                  <Card.Title toggle>External Links</Card.Title>
+                </Card.Header>
+                <Card.Body collapsible>
                   <ul>
                     <li>
                       <a href={node.url}>GitHub Link</a>
@@ -89,11 +92,11 @@ class ProjectContainer extends React.Component<ProjectContainerProps> {
                         ),
                       )}
                   </ul>
-                </Panel.Body>
-              </Panel>
-            </PanelGroup>
-          </Panel.Body>
-        </Panel>
+                </Card.Body>
+              </Card>
+            </PanelGroup> */}
+          </Card.Body>
+        </Card>
       </Col>
     );
   }

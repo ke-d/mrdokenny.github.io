@@ -40,28 +40,32 @@ interface LanguageScore {
 }
 class HomeProps {
   public queryUser: {
-    recentCommit: {
-      name: string;
-      pushedAt: Date;
-      url: string;
+    githubData: {
+      recentCommit: {
+        name: string;
+        pushedAt: Date;
+        url: string;
+      };
+      currentLanguageScores: LanguageScore[];
+      topContributedRepos: any[];
     };
-    currentLanguageScores: LanguageScore[];
-    topContributedRepos: any[];
   };
 }
 
 const getProfile = gql`
   query getProfile {
     queryUser(username: "mrdokenny") {
-      recentCommit {
-        name
-        pushedAt
-        url
-      }
-      topContributedRepos
-      currentLanguageScores {
-        language
-        score
+      githubData {
+        recentCommit {
+          name
+          pushedAt
+          url
+        }
+        topContributedRepos
+        currentLanguageScores {
+          language
+          score
+        }
       }
     }
   }
@@ -128,9 +132,11 @@ const HomeWithData = () => (
             }
             const {
               queryUser: {
-                recentCommit,
-                topContributedRepos,
-                currentLanguageScores,
+                githubData: {
+                  recentCommit,
+                  topContributedRepos,
+                  currentLanguageScores,
+                },
               },
             } = data;
             return (

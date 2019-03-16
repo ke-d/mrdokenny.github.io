@@ -61,7 +61,11 @@ const getProfile = gql`
           pushedAt
           url
         }
-        topContributedRepos
+        topContributedRepos {
+          name
+          url
+          numberOfContributions
+        }
         currentLanguageScores {
           language
           score
@@ -196,13 +200,13 @@ const HomeWithData = () => (
                     error={error}
                     title={'My Top 5 Repositories By Commits'}
                   >
-                    {topContributedRepos.map(({ node }: any, index: number) => {
+                    {topContributedRepos.map((node, index: number) => {
                       if (index < 5) {
                         return (
                           <p key={`${node.name}${index}`}>
                             <a href={node.url}>{node.name}</a>
                             {` has ${
-                              node.defaultBranchRef.target.history.totalCount
+                              node.numberOfContributions
                             } commits by me.`}
                           </p>
                         );
